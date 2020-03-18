@@ -7,7 +7,7 @@ import { TokenLoginComponent } from './token-login/token-login.component';
 const routes: Routes = [
   { path: 'login', component: LoginComponent},
   { path: 'token', component: TokenLoginComponent},
-  { path: '**', redirectTo: ''}
+  { path: '**', redirectTo: '/login'}
 ];
 
 @NgModule({
