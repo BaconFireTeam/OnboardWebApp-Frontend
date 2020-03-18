@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, SystemJsNgModuleLoader } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -29,8 +29,8 @@ export class TokenLoginComponent implements OnInit {
 
   ngOnInit() {
       this.loginForm = this.formBuilder.group({
-          username: ['', Validators.required],
-          password: ['', Validators.required]
+          email: ['', Validators.required],
+          token: ['', Validators.required]
       });
 
       // get return url from route parameters or default to '/'
@@ -48,6 +48,8 @@ export class TokenLoginComponent implements OnInit {
           return;
       }
 
+      console.log(this.f.email.value)
+      console.log(this.f.token.value)
       // this.loading = true;
       // this.authenticationService.login(this.f.username.value, this.f.password.value)
       //     .pipe(first())
