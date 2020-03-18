@@ -25,9 +25,9 @@ export class LoginComponent implements OnInit {
         // private alertService: AlertService
     ) {
         // redirect to home if already logged in
-        // if (this.authenticationService.currentUserValue) { 
-        //     this.router.navigate(['/']);
-        // }
+        if (this.authService.currentUserValue) { 
+            this.router.navigate(['/home']);
+        }
     }
 
     ngOnInit() {
