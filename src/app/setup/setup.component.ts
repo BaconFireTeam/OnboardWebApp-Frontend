@@ -6,7 +6,8 @@ import { User } from '../shared/domain/User';
 @Component({
   selector: 'app-setup',
   templateUrl: './setup.component.html',
-  styleUrls: ['./setup.component.css']
+  styleUrls: ['./setup.component.css'],
+  providers: [UserService],
 })
 
 export class SetupComponent {
@@ -15,7 +16,7 @@ export class SetupComponent {
   email="name@domain.com";
 
   constructor(private route: ActivatedRoute, private router: Router, private userService: UserService) {
-    this.account = new User();
+    // this.account = new User();
   }
 
   onSubmit() {
