@@ -50,10 +50,19 @@ export class LoginComponent implements OnInit {
         if (this.loginForm.invalid) {
             return;
         }
-        console.log("submit");
         this.loading = true;
-        this.authService.login(this.f.username.value, this.f.password.value);
-        console.log("leaving auth");
+        this.authService.login(this.f.username.value, this.f.password.value).subscribe(
+        (res) => {
+          console.log(res);
+        
+            if (res) {
+                this.router.navigate(['/home']);
+            } else {
+                this.loading = false;
+                console.log("invalid");
+            }
+        }
+      );
         //     .pipe(first())
         //     .subscribe(
         //         data => {

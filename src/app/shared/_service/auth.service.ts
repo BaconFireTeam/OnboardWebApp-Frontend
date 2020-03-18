@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators';
-
-import { User } from '../domain/User';
+import 'rxjs/add/operator/map';
+// import { map }  from 'rxjs/operators';
+import { Response } from '../domain/Response.model';
 
 @Injectable({
   providedIn: 'root'
@@ -11,20 +11,14 @@ export class AuthService {
   testUser = "user";
   testPW = "password";
 
-  constructor(private http: HttpClient) { }
+  constructor(private http : HttpClient) { }
 
 
   login(username: string, password: string) {
-    console.log("inside auth");
-    return this.http.post(`/login`, {username, password})
-    .pipe(map(user => {
-      console.log("inside http");
-      if(user){
-        console.log("user exist")
-        return;
-      }
-      console.log("no user exists")
-    }));
+    return this.http.post('http://localhost:4200/login', {username, password}).map((res: Response) => {
+      console.log(res);
+      return res.user;
+    });
     
     // if(username == this.testUser && password == this.testPW){
     //   console.log("login works");
@@ -34,5 +28,12 @@ export class AuthService {
     // }
     // console.log("login failed worked");
     // return false;
+  }
+
+  checkToken(email: string, token: string) {
+    return this.http.post('http://localhost:4200/token', {email, token}).map((res: Response) => {
+      console.log(res);
+      return res.serviceStatus;
+    });
   }
 }
