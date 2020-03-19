@@ -1,4 +1,4 @@
-import { User } from './User';
+import { User, Role } from './User';
 
 export class ServiceStatus {
     statusCode: string;
@@ -15,4 +15,5 @@ export class ServiceStatus {
 export class Response {
     serviceStatus: ServiceStatus;
     user: User;
+    role: Role;
 }
