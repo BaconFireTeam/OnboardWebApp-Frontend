@@ -29,6 +29,7 @@ export class AuthService {
       localStorage.setItem('currentUser', JSON.stringify(res.user));
       this.currentUserSubject.next(res.user);
       }
+      console.log(res);
       return res.user;
     });
   }
