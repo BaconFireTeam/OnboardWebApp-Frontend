@@ -1,3 +1,5 @@
+import { User } from './User';
+
 export class ServiceStatus {
     statusCode: string;
     success: boolean;
@@ -12,4 +14,5 @@ export class ServiceStatus {
 
 export class Response {
     serviceStatus: ServiceStatus;
+    user: User;
 }

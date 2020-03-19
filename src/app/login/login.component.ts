@@ -25,9 +25,9 @@ export class LoginComponent implements OnInit {
         // private alertService: AlertService
     ) {
         // redirect to home if already logged in
-        // if (this.authenticationService.currentUserValue) { 
-        //     this.router.navigate(['/']);
-        // }
+        if (this.authService.currentUserValue) { 
+            this.router.navigate(['/home']);
+        }
     }
 
     ngOnInit() {
@@ -50,9 +50,19 @@ export class LoginComponent implements OnInit {
         if (this.loginForm.invalid) {
             return;
         }
-
         this.loading = true;
-        this.authService.login(this.f.username.value, this.f.password.value)
+        this.authService.login(this.f.username.value, this.f.password.value).subscribe(
+        (res) => {
+          console.log(res);
+        
+            if (res) {
+                this.router.navigate(['/home']);
+            } else {
+                this.loading = false;
+                console.log("invalid");
+            }
+        }
+      );
         //     .pipe(first())
         //     .subscribe(
         //         data => {
