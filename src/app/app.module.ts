@@ -11,6 +11,7 @@ import { SetupComponent } from './setup/setup.component';
 import { NavbarComponent } from './shared/component/navbar/navbar.component';
 import { HomeComponent } from './shared/component/home/home.component';
 import { UserService } from '../app/setup/user.service'
+import { TokenComponent} from './generate-token/token.component'
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { UserService } from '../app/setup/user.service'
     SetupComponent,
     NavbarComponent,
     HomeComponent,
+    TokenComponent
   ],
   imports: [
     BrowserModule,

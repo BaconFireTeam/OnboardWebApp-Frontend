@@ -12,8 +12,10 @@ import { User } from '../shared/domain/User';
 
 export class SetupComponent {
 
+  username = 'test';
   account: User;
-  email="name@domain.com";
+  email = 'name@domain.com';
+  password= 'test';
 
   constructor(private route: ActivatedRoute, private router: Router, private userService: UserService) {
     // this.account = new User();
