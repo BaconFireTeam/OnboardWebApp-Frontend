@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../_service/auth.service'
-import { User } from '../../domain/User';
+import { User, Role } from '../../domain/User';
 
 @Component({
   selector: 'app-home',
@@ -9,6 +9,7 @@ import { User } from '../../domain/User';
 })
 export class HomeComponent implements OnInit {
    currentUser:User;
+   currentUserRole:Role;
   constructor(private authService: AuthService) { 
     
   }
@@ -16,6 +17,7 @@ export class HomeComponent implements OnInit {
   
   ngOnInit(): void {
     this.currentUser = this.authService.currentUserValue;
+    this.currentUserRole = this.authService.currentUserRoleValue;
   }
 
 }
