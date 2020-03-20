@@ -11,6 +11,7 @@ import { DrivingStatusComponent } from './token-login/setup/driving-status/drivi
 import { ReferenceComponent } from './token-login/setup/reference/reference.component';
 import { EmergencyContactComponent } from './token-login/setup/emergency-contact/emergency-contact.component';
 import { DocumentsComponent } from './token-login/setup/documents/documents.component';
+import { EmpVisaComponent } from './emp-visa/emp-visa.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent},
@@ -24,6 +25,7 @@ const routes: Routes = [
   { path: 'reference', component: ReferenceComponent },
   { path: 'emergency', component: EmergencyContactComponent },
   { path: 'documents', component: DocumentsComponent },
+  { path: 'emp-visa', component: EmpVisaComponent },
   { path: '**', redirectTo: '/login'}
 ];
 

@@ -17,7 +17,8 @@ import { WorkStatusComponent } from './token-login/setup/work-status/work-status
 import { DrivingStatusComponent } from './token-login/setup/driving-status/driving-status.component';
 import { ReferenceComponent } from './token-login/setup/reference/reference.component';
 import { EmergencyContactComponent } from './token-login/setup/emergency-contact/emergency-contact.component';
-import { DocumentsComponent } from './token-login/setup/documents/documents.component'
+import { DocumentsComponent } from './token-login/setup/documents/documents.component';
+import { EmpVisaComponent } from './emp-visa/emp-visa.component'
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { DocumentsComponent } from './token-login/setup/documents/documents.comp
     DrivingStatusComponent,
     ReferenceComponent,
     EmergencyContactComponent,
-    DocumentsComponent
+    DocumentsComponent,
+    EmpVisaComponent
   ],
   imports: [
     BrowserModule,

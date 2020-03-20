@@ -1,0 +1,52 @@
+<app-navbar></app-navbar>
+<h2>Manage Visa Status</h2>
+<div class="card my-5">
+    <div class="card-body">
+        <form (ngSubmit)="onSubmit()" #visaForm="ngForm">
+            <div *ngIf="onOpt">
+                <div class="form-group">Please upload your OPT EAD.</div>
+                <div class="form-group">
+                    <label for="optead">Upload OPT EAD: </label><br>
+                    <input type="file" id="optead" name="optead" [(ngModel)]="optead" required>
+                    <!-- need to figure out file upload but display seems to work -->
+                </div>
+            </div>
+            <div *ngIf="on983">
+                <div class="form-group">Please upload your I-983.</div>
+                <div class="form-group">
+                    <a href="./shared/documents/1983.pdf" target="_blank">Sample I-983</a>
+                </div>
+                <div class="form-group">
+                    <label for="i983">Upload I-983: </label><br>
+                    <input type="file" id="i983" name="i983" [(ngModel)]="i983" required>
+                    <!-- need to figure out file upload but display seems to work -->
+                </div>
+            </div>
+            <div *ngIf="on20">
+                <div class="form-group">Please upload your I-20.</div>
+                <div class="form-group">
+                    <label for="i20">Upload I-20: </label><br>
+                    <input type="file" id="i20" name="i20" [(ngModel)]="i20" required>
+                    <!-- need to figure out file upload but display seems to work -->
+                </div>
+            </div>
+            <div *ngIf="onStemRec">
+                <div class="form-group">Please upload your OPT STEM receipt.</div>
+                <div class="form-group">
+                    <label for="stemrec">Upload OPT STEM receipt: </label><br>
+                    <input type="file" id="stemrec" name="stemrec" [(ngModel)]="stemrec" required>
+                    <!-- need to figure out file upload but display seems to work -->
+                </div>
+            </div>
+            <div *ngIf="onStemEad">
+                <div class="form-group">Please upload your OPT STEM EAD.</div>
+                <div class="form-group">
+                    <label for="stemead">Upload OPT STEM EAD: </label><br>
+                    <input type="file" id="stemead" name="stemead" [(ngModel)]="stemead" required>
+                    <!-- need to figure out file upload but display seems to work -->
+                </div>
+            </div>
+            <button type="submit" [disabled]="!visaForm.form.valid" class="btn btn-info">Next</button>
+        </form>
+    </div>
+</div>

@@ -13,6 +13,13 @@ export class EmergencyContactComponent implements OnInit {
   phone: string;
   email: string;
   relationship: string;
+  second: boolean = false;
+  firstName2: string;
+  lastName2: string;
+  middleName2: string;
+  phone2: string;
+  email2: string;
+  relationship2: string;
 
   constructor(private route: ActivatedRoute, private router: Router) { }
 
@@ -20,7 +27,7 @@ export class EmergencyContactComponent implements OnInit {
   }
 
   addContact(){
-    console.log("figure out how to add more contcts");
+    this.second = !this.second;
   }
 
   onSubmit() {

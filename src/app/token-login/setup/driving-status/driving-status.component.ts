@@ -8,6 +8,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class DrivingStatusComponent implements OnInit {
   hasLiscense: boolean = false;
+  car:string;
   expDate: string;
   liscenseNum: string;
   liscense: File;

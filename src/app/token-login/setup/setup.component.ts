@@ -25,6 +25,7 @@ export class SetupComponent {
   ngOnInit() {
     this.email = this.registerService.getEmail();
   }
+  
   onSubmit() {
     this.router.navigate(['/personal']);
     // this.userService.save(this.account).subscribe(result => this.createAccount());

@@ -8,13 +8,19 @@
             <div *ngIf="hasLiscense">
 
                 <div class="form-group">
+                    <label for="car">Liscense Number:</label>
+                    <input type="text" [(ngModel)]="car" class="form-control" id="car" name="car" placeholder="What car do you drive?" required #vroom="ngModel">
+                    <div [hidden]="vroom.valid||vroom.pristine" class="alert alert-danger">Car information is required</div>
+                </div>
+
+                <div class="form-group">
                     <label for="liscenseNum">Liscense Number:</label>
                     <input type="text" [(ngModel)]="liscenseNum" class="form-control" id="liscenseNum" name="liscenseNum" placeholder="What is your driver's liscense number?" required #driveNum="ngModel">
                     <div [hidden]="driveNum.valid||driveNum.pristine" class="alert alert-danger">Liscense Number is required</div>
                 </div>
 
                 <div class="form-group">
-                    <label for="expDate">Start Date:</label>
+                    <label for="expDate">Expiration Date:</label>
                     <input type="date" [(ngModel)]="expDate" class="form-control" id="expDate" name="expDate" required #exp="ngModel">
                     <div [hidden]="exp.valid||exp.pristine" class="alert alert-danger">Start Date is required</div>
                 </div>
