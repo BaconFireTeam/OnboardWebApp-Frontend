@@ -13,7 +13,11 @@ import { HomeComponent } from './shared/component/home/home.component';
 import { UserService } from './token-login/setup/user.service'
 import { TokenComponent} from './generate-token/token.component';
 import { OnboardingComponent } from './token-login/setup/onboarding/onboarding.component';
-import { WorkStatusComponent } from './token-login/setup/work-status/work-status.component'
+import { WorkStatusComponent } from './token-login/setup/work-status/work-status.component';
+import { DrivingStatusComponent } from './token-login/setup/driving-status/driving-status.component';
+import { ReferenceComponent } from './token-login/setup/reference/reference.component';
+import { EmergencyContactComponent } from './token-login/setup/emergency-contact/emergency-contact.component';
+import { DocumentsComponent } from './token-login/setup/documents/documents.component'
 
 @NgModule({
   declarations: [
@@ -25,7 +29,11 @@ import { WorkStatusComponent } from './token-login/setup/work-status/work-status
     HomeComponent,
     TokenComponent,
     OnboardingComponent,
-    WorkStatusComponent
+    WorkStatusComponent,
+    DrivingStatusComponent,
+    ReferenceComponent,
+    EmergencyContactComponent,
+    DocumentsComponent
   ],
   imports: [
     BrowserModule,

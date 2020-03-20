@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-work-status',
@@ -11,7 +12,7 @@ startDate: string;
 endDate: string;
 workStatus: string;
 otherStatus: string;
-  constructor() { }
+  constructor(private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -24,5 +25,6 @@ otherStatus: string;
     if(this.otherStatus !== '') {
       this.workStatus = this.otherStatus;
     }
+    this.router.navigate(['/driver']);
   }
 }
