@@ -1,0 +1,87 @@
+<h2>Emergency Contact(s)</h2>
+<div class="card my-5">
+    <div class="card-body">
+        <form (ngSubmit)="onSubmit()" #contactForm="ngForm">
+
+            <div class="form-group">
+                <label for="firstName">First Name: </label>
+                <input type="text" [(ngModel)]="firstName" class="form-control" id="firstName" name="firstName" placeholder="Enter contact First Name" required #fName="ngModel">
+                <div [hidden]="fName.valid || fName.pristine" class="alert alert-danger">First Name is required</div>
+            </div>
+
+            <div class="form-group">
+                <label for="lastName">Last Name: </label>
+                <input type="text" [(ngModel)]="lastName" class="form-control" id="lastName" name="lastName" placeholder="Enter contact Last Name" required #lName="ngModel">
+                <div [hidden]="lName.valid||lName.pristine" class="alert alert-danger">Email is required</div>
+            </div>
+
+            <div class="form-group">
+                <label for="middleName">Middle Name:</label>
+                <input type="text" [(ngModel)]="middleName" class="form-control" id="middleName" name="middleName" placeholder="Enter contact Middle Name" #mName="ngModel">
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="text" [(ngModel)]="email" class="form-control" id="email" name="email" placeholder="Enter contact email" required #mail="ngModel">
+                <div [hidden]="mail.valid||mail.pristine " class="alert alert-danger ">Email is required</div>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Cell Number:</label>
+                <input type="tel" [(ngModel)]="phone" class="form-control" id="phone" name="=phone" placeholder="Enter contact Phone Number" required #cPhone="ngModel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+                <div [hidden]="cPhone.valid||cPhone.pristine " class="alert alert-danger ">Phone Number is required</div>
+            </div>
+
+            <div class="form-group ">
+                <label for="relationship">Relationship:</label>
+                <input type="text" [(ngModel)]="relationship" class="form-control" id="relationship" name="relationship" placeholder="What is your relationship with this person" required #ref="ngModel">
+                <div [hidden]="ref.valid||ref.pristine" class="alert alert-danger">Relationship is required</div>
+            </div>
+            <div *ngIf="!second">
+                <button type="button" class="btn btn-info" (click)="addContact()">Add Contact</button>
+            </div>
+            <div *ngIf="second">
+                <h3>Second Contact</h3>
+                <div class="form-group">
+                    <label for="firstName2">First Name: </label>
+                    <input type="text" [(ngModel)]="firstName2" class="form-control" id="firstName2" name="firstName2" placeholder="Enter contact First Name" required #fName2="ngModel">
+                    <div [hidden]="fName2.valid || fName2.pristine" class="alert alert-danger">First Name is required</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="lastName2">Last Name: </label>
+                    <input type="text" [(ngModel)]="lastName2" class="form-control" id="lastName2" name="lastName2" placeholder="Enter contact Last Name" required #lName2="ngModel">
+                    <div [hidden]="lName2.valid||lName2.pristine" class="alert alert-danger">Last Name is required</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="middleName2">Middle Name:</label>
+                    <input type="text" [(ngModel)]="middleName2" class="form-control" id="middleName2" name="middleName2" placeholder="Enter contact Middle Name" #mName2="ngModel">
+                </div>
+
+                <div class="form-group">
+                    <label for="email2">Email</label>
+                    <input type="text" [(ngModel)]="email2" class="form-control" id="email2" name="email" placeholder="Enter contact email" required #mail2="ngModel">
+                    <div [hidden]="mail2.valid||mail2.pristine " class="alert alert-danger ">Email is required</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone2">Cell Number:</label>
+                    <input type="tel" [(ngModel)]="phone2" class="form-control" id="phone2" name="=phone2" placeholder="Enter contact Phone Number" required #cPhone2="ngModel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+                    <div [hidden]="cPhone2.valid||cPhone2.pristine " class="alert alert-danger ">Phone Number is required</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="relationship2">Relationship:</label>
+                    <input type="text" [(ngModel)]="relationship2" class="form-control" id="relationship2" name="relationship2" placeholder="What is your relationship with this person" required #ref2="ngModel">
+                    <div [hidden]="ref2.valid||ref2.pristine" class="alert alert-danger">Relationship is required</div>
+                </div>
+                <div *ngIf="!second">
+                    <button type="button" class="btn btn-info" (click)="addContact()">Add Contact</button>
+                </div>
+                <button type="button" class="btn btn-info" (click)="addContact()">Remove Contact</button>
+            </div>
+            <button type="submit " [disabled]="!contactForm.form.valid " class="btn btn-info ">Next</button>
+        </form>
+    </div>
+</div>

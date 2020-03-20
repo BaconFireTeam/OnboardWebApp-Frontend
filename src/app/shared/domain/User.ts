@@ -16,3 +16,16 @@ export class Role {
     modificationDate: string;
     lastModificationUser: string;
 }
+
+export class Person {
+    id: number;
+    firstName: string;
+    lastName: string;
+    middleName: string;
+    email: string;
+    cellPhone: string;
+    alternatePhone: string;
+    gender: string;
+    ssn: string;
+    dob: string;
+}
