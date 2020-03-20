@@ -5,6 +5,7 @@ import {  AlertService } from '../shared/_service/alert.service';
 import {  AuthService } from '../shared/_service/auth.service';
 
 import { first } from 'rxjs/operators';
+import { RegisterService } from './register.service';
 
 @Component({
   selector: 'app-token-login',
@@ -23,7 +24,8 @@ export class TokenLoginComponent implements OnInit {
       private route: ActivatedRoute,
       private router: Router,
       private authService: AuthService,
-      private alertService: AlertService
+      private alertService: AlertService,
+      private registerService: RegisterService
   ) {
       // redirect to home if already logged in
       // if (this.authenticationService.currentUserValue) { 
@@ -61,6 +63,7 @@ export class TokenLoginComponent implements OnInit {
           console.log(res);
         
             if (res.success) {
+                this.registerService.setEmail(this.f.email.value);
                 this.router.navigate(['/setup']);
             } else {
                 this.loading = false;
