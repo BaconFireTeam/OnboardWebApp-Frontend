@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Contact } from 'src/app/shared/domain/Employee';
+import { Contact, Address } from 'src/app/shared/domain/Employee';
 import { EmployeeService } from '../employee.service';
 
 @Component({
@@ -10,11 +10,17 @@ import { EmployeeService } from '../employee.service';
 })
 export class ReferenceComponent implements OnInit {
   contact: Contact = new Contact();
+  address: Address = new Address();
   firstName: string;
   lastName: string;
   middleName: string;
   phone: string;
-  address: string;
+  addressLine1: string;
+  addressLine2: string;
+  city: string;
+  zipcode: string;
+  state: string;
+  stateAbbr: string;
   email: string;
   relationship: string;
 
@@ -22,6 +28,7 @@ export class ReferenceComponent implements OnInit {
   constructor(private route: ActivatedRoute, private router: Router, private employeeService: EmployeeService) { }
 
   ngOnInit(): void {
+    this.contact.address = [];
   }
 
   goBack() {
@@ -29,6 +36,26 @@ export class ReferenceComponent implements OnInit {
   }
 
   onSubmit() {
+    this.contact.firstname = this.firstName;
+    this.contact.lastname = this.lastName;
+    this.contact.middlename = this.middleName;
+    this.contact.email = this.email;
+    this.contact.cellphone = this.phone;
+    this.contact.relationship = this.relationship;
+    this.contact.isReference = true;
+
+    this.address.addressLine1 = this.addressLine1;
+    this.address.addressLine2 = this.addressLine2;
+    this.address.city = this.city;
+    this.address.zipcode = this.zipcode;
+    this.address.state = this.state;
+    this.address.stateAbbr = this.stateAbbr;
+
+    this.contact.address.push(this.address);
+
+    this.employeeService.addContact(this.contact);
+
+    console.log(this.employeeService.getEmployee());
     this.router.navigate(['/emergency']);
   }
 

@@ -46,6 +46,7 @@ export class Contact {
     ssn: string;
     dob: string;
     address: Address[];
+    relationship: string;
     isReference: boolean;
     isEmergency: boolean;
 }
