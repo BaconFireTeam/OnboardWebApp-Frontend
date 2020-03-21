@@ -43,7 +43,7 @@
                 <input type="text" [(ngModel)]="relationship" class="form-control" id="relationship" name="relationship" placeholder="What is your relationship with this reference" required #ref="ngModel">
                 <div [hidden]="ref.valid||ref.pristine " class="alert alert-danger ">Address is required</div>
             </div>
-
+            <button type="button" class="btn btn-info" (click)="goBack()">Back</button> |
             <button type="submit " [disabled]="!refForm.form.valid " class="btn btn-info ">Next</button>
         </form>
     </div>

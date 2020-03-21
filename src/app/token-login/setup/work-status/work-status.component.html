@@ -7,10 +7,10 @@
             </div>
             <div *ngIf="status">
                 <div class="radio">
-                    <label><input type="radio" name="citizenship" value="Citizen">Citizen</label>
+                    <label><input type="radio" name="citizenship" value="Citizen" (change)="selectPapers($event)">Citizen</label>
                 </div>
                 <div class="radio">
-                    <label><input type="radio" name="citizenship" value="Green Card">Green Card</label>
+                    <label><input type="radio" name="citizenship" value="Green Card" (change)="selectPapers($event)">Green Card</label>
                 </div>
             </div>
             <div *ngIf="!status">
@@ -39,6 +39,7 @@
                     <div [hidden]="end.valid||end.pristine" class="alert alert-danger">Birth Date is required</div>
                 </div>
             </div>
+            <button type="button" class="btn btn-info" (click)="goBack()">Back</button> |
             <button type="submit" [disabled]="!workForm.form.valid" class="btn btn-info">Next</button>
             <!-- [disabled]="!workForm.form.valid"  command wants everything to be filled not just one side-->
         </form>
