@@ -50,3 +50,13 @@ export class Contact {
     isReference: boolean;
     isEmergency: boolean;
 }
+
+export class ApplicationWorkFlow {
+    id: number;
+    employeeID: number;
+    createdDate: string;
+    modificationDate: string;
+    status: string;
+    comments: string;
+    type: string;
+}

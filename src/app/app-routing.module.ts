@@ -12,6 +12,7 @@ import { ReferenceComponent } from './token-login/setup/reference/reference.comp
 import { EmergencyContactComponent } from './token-login/setup/emergency-contact/emergency-contact.component';
 import { DocumentsComponent } from './token-login/setup/documents/documents.component';
 import { EmpVisaComponent } from './emp-visa/emp-visa.component';
+import { HrVisaComponent } from './hr-visa/hr-visa.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent},
@@ -25,7 +26,8 @@ const routes: Routes = [
   { path: 'reference', component: ReferenceComponent },
   { path: 'emergency', component: EmergencyContactComponent },
   { path: 'documents', component: DocumentsComponent },
-  { path: 'emp-visa', component: EmpVisaComponent },
+  { path: 'employee/visa', component: EmpVisaComponent },
+  { path: 'hr/visa', component: HrVisaComponent },
   { path: '**', redirectTo: '/login'}
 ];
 
