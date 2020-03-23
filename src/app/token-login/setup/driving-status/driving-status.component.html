@@ -1,0 +1,39 @@
+<h2>Driving Status</h2>
+<div class="card my-5">
+    <div class="card-body">
+        <form (ngSubmit)="onSubmit()" #driveForm="ngForm">
+            <div class="checkbox">
+                <label for="driver"><input type="checkbox" value="{{hasLiscense}}" id="driver" name="driver" [(ngModel)]="hasLiscense">Do you have a driver's liscense?</label><br>
+            </div>
+            <div *ngIf="hasLiscense">
+
+                <div class="form-group">
+                    <label for="car">Liscense Number:</label>
+                    <input type="text" [(ngModel)]="car" class="form-control" id="car" name="car" placeholder="What car do you drive?" required #vroom="ngModel">
+                    <div [hidden]="vroom.valid||vroom.pristine" class="alert alert-danger">Car information is required</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="liscenseNum">Liscense Number:</label>
+                    <input type="text" [(ngModel)]="liscenseNum" class="form-control" id="liscenseNum" name="liscenseNum" placeholder="What is your driver's liscense number?" required #driveNum="ngModel">
+                    <div [hidden]="driveNum.valid||driveNum.pristine" class="alert alert-danger">Liscense Number is required</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="expDate">Expiration Date:</label>
+                    <input type="date" [(ngModel)]="expDate" class="form-control" id="expDate" name="expDate" required #exp="ngModel">
+                    <div [hidden]="exp.valid||exp.pristine" class="alert alert-danger">Start Date is required</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="file">Upload Driver's Liscense: </label><br>
+                    <input type="file" id="file" required>
+                    <!-- need to figure out file upload but display seems to work -->
+                </div>
+
+            </div>
+            <button type="button" class="btn btn-info" (click)="goBack()">Back</button> |
+            <button type="submit" [disabled]="!driveForm.form.valid" class="btn btn-info">Next</button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,99 @@
+<h2>Personal Information</h2>
+<div class="card my-5">
+    <div class="card-body">
+        <form (ngSubmit)="onSubmit()" #onboardForm="ngForm">
+
+            <div class="form-group">
+                <label for="firstName">First Name: </label>
+                <input type="text" [(ngModel)]="firstName" class="form-control" id="firstName" name="firstName" placeholder="Enter your First Name" required #fName="ngModel">
+                <div [hidden]="fName.valid || fName.pristine" class="alert alert-danger">First Name is required</div>
+            </div>
+
+            <div class="form-group">
+                <label for="lastName">Last Name: </label>
+                <input type="text" [(ngModel)]="lastName" class="form-control" id="lastName" name="lastName" placeholder="Enter your Last Name" required #lName="ngModel">
+                <div [hidden]="lName.valid||lName.pristine" class="alert alert-danger">Email is required</div>
+            </div>
+
+            <div class="form-group">
+                <label for="middleName">Middle Name:</label>
+                <input type="text" [(ngModel)]="middleName" class="form-control" id="middleName" name="middleName" placeholder="Enter your Middle Name" #mName="ngModel">
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="text" [(ngModel)]="email" class="form-control" id="email" name="email" value={{email}} required #mail="ngModel" readonly>
+                <!-- <div [hidden]="mail.valid||mail.pristine" class="alert alert-danger">Email is required</div> -->
+            </div>
+
+            <div class="form-group">
+                <label for="cellPhone">Cell Number:</label>
+                <input type="tel" [(ngModel)]="cellPhone" class="form-control" id="cellPhone" name="cellPhone" placeholder="Enter your Cell Phone Number" required #cPhone="ngModel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+                <div [hidden]="cPhone.valid||cPhone.pristine" class="alert alert-danger">Cell Phone is required</div>
+            </div>
+
+            <div class="form-group">
+                <label for="altPhone">Alternate Number:</label>
+                <input type="tel" [(ngModel)]="altPhone" class="form-control" id="altPhone" name="altPhone" placeholder="Enter Alternate Phone Number" #aPhone="ngModel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+            </div>
+
+            <div class="form-group">
+                <label for="gender">Gender:</label>
+                <select class="form-control" id="gender" (change)="chooseGender($event)">
+                  <option value="M">M</option>
+                  <option value="F">F</option>
+                  <option value="NA">NA</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="ssn">Social Security:</label>
+                <input type="text" [(ngModel)]="ssn" class="form-control" id="ssn" name="ssn" placeholder="Enter your Social Security Number" required #socNum="ngModel">
+                <div [hidden]="socNum.valid||socNum.pristine" class="alert alert-danger">Social Security is required</div>
+            </div>
+
+            <div class="form-group">
+                <label for="dob">Date of Birth:</label>
+                <input type="date" [(ngModel)]="dob" class="form-control" id="dob" name="dob" placeholder="Enter your Birth Date" required #birth="ngModel">
+                <div [hidden]="birth.valid||birth.pristine" class="alert alert-danger">Birth Date is required</div>
+            </div>
+
+            <div class="form-group">
+                <label for="addressLine1">Address Line 1</label>
+                <input type="text" [(ngModel)]="addressLine1" class="form-control" id="addressLine1" name="addressLine1" placeholder="Address Line 1" #addr1="ngModel">
+                <div [hidden]="addr1.valid||addr1.pristine" class="alert alert-danger">Address is required</div>
+            </div>
+
+            <div class="form-group">
+                <label for="addressLine2">Address Line 2</label>
+                <input type="text" [(ngModel)]="addressLine2" class="form-control" id="addressLine2" name="addressLine2" placeholder="Address Line 2" #adder2="ngModel">
+            </div>
+
+            <div class="form-group">
+                <label for="city">City:</label>
+                <input type="text" [(ngModel)]="city" class="form-control" id="city" name="city" placeholder="City" #town="ngModel">
+                <div [hidden]="town.valid||town.pristine" class="alert alert-danger">City is required</div>
+            </div>
+
+            <div class="form-group">
+                <label for="zipcode">Zipcode:</label>
+                <input type="text" [(ngModel)]="zipcode" class="form-control" id="zipcode" name="zipcode" placeholder="Zipcode" #zCode="ngModel">
+                <div [hidden]="zCode.valid||zCode.pristine" class="alert alert-danger">Zipcode is required</div>
+            </div>
+
+            <div class="form-group">
+                <label for="state">State:</label>
+                <input type="text" [(ngModel)]="state" class="form-control" id="state" name="state" placeholder="State" #st="ngModel">
+                <div [hidden]="st.valid||st.pristine" class="alert alert-danger">State is required</div>
+            </div>
+
+            <div class="form-group">
+                <label for="stateAbbr">State Abbreviation:</label>
+                <input type="text" [(ngModel)]="stateAbbr" class="form-control" id="stateAbbr" name="stateAbbr" placeholder="stateAbbr" #stab="ngModel">
+                <div [hidden]="stab.valid||stab.pristine" class="alert alert-danger">State Abbreviation is required</div>
+            </div>
+
+            <button type="submit" [disabled]="!onboardForm.form.valid" class="btn btn-info">Next</button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+<app-navbar></app-navbar>
+<h2>Manage Visa Status</h2>
+<div class="card my-5">
+    <div class="card-body">
+        <div *ngIf="!visaAlert">No Alerts to display for {{employeeName}}</div>
+        <div *ngIf="visaAlert && appStatus === 'open'">
+            <form (ngSubmit)="onSubmit()" #visaForm="ngForm">
+                <div>
+                    <div class="form-group">
+                        <label for="visaFile">{{visaMessage}}</label><br>
+                        <input type="file" id="visaFile" name="visaFile" required>
+                        <!-- need to figure out file upload but display seems to work -->
+                    </div>
+                </div>
+                <button type="submit" [disabled]="!visaForm.form.valid" class="btn btn-info">Next</button>
+            </form>
+        </div>
+        <div *ngIf="appStatus === 'pending'">Please wait for HR to approve your paperwork</div>
+    </div>
+</div>

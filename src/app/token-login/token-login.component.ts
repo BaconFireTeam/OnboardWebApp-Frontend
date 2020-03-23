@@ -5,6 +5,7 @@ import {  AlertService } from '../shared/_service/alert.service';
 import {  AuthService } from '../shared/_service/auth.service';
 
 import { first } from 'rxjs/operators';
+import { RegisterService } from './register.service';
 
 @Component({
   selector: 'app-token-login',
@@ -17,13 +18,16 @@ export class TokenLoginComponent implements OnInit {
   loading = false;
   submitted = false;
   returnUrl: string;
+  testEmail: string = "test@mail.com";
+  testToken: string = 't3sT';
 
   constructor(
       private formBuilder: FormBuilder,
       private route: ActivatedRoute,
       private router: Router,
       private authService: AuthService,
-      private alertService: AlertService
+      private alertService: AlertService,
+      private registerService: RegisterService
   ) {
       // redirect to home if already logged in
       // if (this.authenticationService.currentUserValue) { 
@@ -56,28 +60,28 @@ export class TokenLoginComponent implements OnInit {
       console.log(this.f.token.value)
 
       this.loading = true;
-      this.authService.checkToken(this.f.email.value, this.f.token.value).subscribe(
-        (res) => {
-          console.log(res);
+      if(this.f.email.value == this.testEmail && this.f.token.value == this.testToken) {
+        this.registerService.setEmail(this.f.email.value);
+        this.router.navigate(['/setup']);
+      } else {
+        this.loading = false;
+        console.log("invalid");
+      }
+// comment for front end test
+//////////////////////////////////////////////////////////////////////////      
+  //     this.authService.checkToken(this.f.email.value, this.f.token.value).subscribe(
+  //       (res) => {
+  //         console.log(res);
         
-            if (res.success) {
-                this.router.navigate(['/setup']);
-            } else {
-                this.loading = false;
-                console.log("invalid");
-            }
-        }
-      );
-    //   this.authService.validToken(this.f.email.value, this.f.token.value)
-            // .pipe(first())
-            // .subscribe(
-            //     data => {
-            //         this.router.navigate([this.returnUrl]);
-            //     },
-            //     error => {
-            //         this.alertService.error(error);
-            //         this.loading = false;
-            //     });
+  //           if (res.success) {
+  //               this.registerService.setEmail(this.f.email.value);
+  //               this.router.navigate(['/setup']);
+  //           } else {
+  //               this.loading = false;
+  //               console.log("invalid");
+  //           }
+  //       }
+  //     );
   }
 
 }

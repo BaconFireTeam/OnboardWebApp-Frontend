@@ -1,25 +1,51 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand">Navbar</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" class="nav-link" routerLink="/home" routerLinkActive="active">Home <!--span class="sr-only">(current)</span--></a>
             </li>
 
             <li class="nav-item ">
                 <a class="nav-link " href="# " (click)="logout() ">Logout</a>
             </li>
-            <div *ngIf="currentUserRole.id < 2">
-                <li class=" nav-item ">
-                    <a class="nav-link " href="# ">Hire</a>
+            <div *ngIf="currentUserRole.id == 1" style="display: inline">
+                <div>
+                    <li class="nav-item">
+                        <a class="nav-link " href="#">Employee Profile</a>
+                    </li>
+                </div>
+                <div>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/hr/visa" routerLinkActive="active">Visa Status Management</a>
+                    </li>
+                </div>
+                <div>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Hire</a>
+                    </li>
+                </div>
+                <div>
+                    <li class="nav-item">
+                        <a class="nav-link " href="#">House Management</a>
+                    </li>
+                </div>
+            </div>
+            <div *ngIf="currentUserRole.id == 2">
+                <li class="nav-item">
+                    <a class="nav-link " href="#">Personal Information</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/employee/visa" routerLinkActive="active">Visa Status Management</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Housing</a>
                 </li>
             </div>
-            <li class="nav-item ">
-                <a class="nav-link disabled " href="# " tabindex="-1 " aria-disabled="true ">Disabled</a>
-            </li>
         </ul>
     </div>
 </nav>
+<router-outlet></router-outlet>

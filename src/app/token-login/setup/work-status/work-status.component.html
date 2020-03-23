@@ -1,0 +1,47 @@
+<h2>Work Status</h2>
+<div class="card my-5">
+    <div class="card-body">
+        <form (ngSubmit)="onSubmit()" #workForm="ngForm">
+            <div class="checkbox">
+                <label for="citizen"><input type="checkbox" value="{{status}}" id="citizen" name="citizen" [(ngModel)]="status">Are you a citizen or permanent resident of the US?</label><br>
+            </div>
+            <div *ngIf="status">
+                <div class="radio">
+                    <label><input type="radio" name="citizenship" value="Citizen" (change)="selectPapers($event)">Citizen</label>
+                </div>
+                <div class="radio">
+                    <label><input type="radio" name="citizenship" value="Green Card" (change)="selectPapers($event)">Green Card</label>
+                </div>
+            </div>
+            <div *ngIf="!status">
+                <div class="form-group">
+                    <label for="WorkAuth">Work Authorization:</label>
+                    <select class="form-control" id="workAuth" (change)="selectPapers($event)">
+                        <option value="H1-B">H1-B</option>
+                        <option value="L2">L2</option>
+                        <option value="F1(CPT-OPT)">F1(CPT-OPT)</option>
+                        <option value="H4">H4</option>
+                        <option value="Other">Other</option>
+                </select>
+                </div>
+                <div class="form-group" [hidden]="workStatus !== 'Other'">
+                    <label for="otherStatus">Other:</label>
+                    <input type="text" [(ngModel)]="otherStatus" class="form-control" id="otherStatus" name="otherStatus" placeholder="What is your work Authorization">
+                </div>
+                <div class="form-group">
+                    <label for="startDate">Start Date:</label>
+                    <input type="date" [(ngModel)]="startDate" class="form-control" id="startDate" name="startDate" required #start="ngModel">
+                    <div [hidden]="start.valid||start.pristine" class="alert alert-danger">Start Date is required</div>
+                </div>
+                <div class="form-group">
+                    <label for="endDate">End Date:</label>
+                    <input type="date" [(ngModel)]="endDate" class="form-control" id="endDate" name="endDate" required #end="ngModel">
+                    <div [hidden]="end.valid||end.pristine" class="alert alert-danger">Birth Date is required</div>
+                </div>
+            </div>
+            <button type="button" class="btn btn-info" (click)="goBack()">Back</button> |
+            <button type="submit" [disabled]="!workForm.form.valid" class="btn btn-info">Next</button>
+            <!-- [disabled]="!workForm.form.valid"  command wants everything to be filled not just one side-->
+        </form>
+    </div>
+</div>
