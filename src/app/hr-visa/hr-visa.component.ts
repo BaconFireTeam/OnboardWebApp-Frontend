@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HrVisaService } from '../shared/_service/hr-visa.service';
 import { VisaStatusResponse, ApplicationResponse } from '../shared/domain/VisaResponse';
+import { UploadFileResponse } from '../shared/_service/FileResponse';
 
 @Component({
   selector: 'app-hr-visa',
@@ -10,6 +11,7 @@ import { VisaStatusResponse, ApplicationResponse } from '../shared/domain/VisaRe
 export class HrVisaComponent implements OnInit {
   responses: Array<VisaStatusResponse>;
   applications: Array<ApplicationResponse>;
+  uploads:Array<UploadFileResponse>;
 
   constructor(private hrVisaService: HrVisaService) { }
 
@@ -40,6 +42,11 @@ export class HrVisaComponent implements OnInit {
   getDocs(id: number, type: string){
     console.log(id);
     console.log(type);
+    this.hrVisaService.getDocuments(id, type).subscribe(
+      (appRes) => {
+        this.uploads = appRes;
+        console.log(this.uploads);
+      });
 
   }
 }

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { UploadFileResponse } from 'src/app/shared/_service/FileResponse';
 
 @Component({
   selector: 'app-get-documents',
@@ -7,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GetDocumentsComponent implements OnInit {
 
+  @Input() docRes:UploadFileResponse;
+  
   constructor() { }
 
   ngOnInit(): void {

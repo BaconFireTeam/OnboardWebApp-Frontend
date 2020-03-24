@@ -12,7 +12,7 @@
         <div class="form-group" *ngFor="let application of applications">
             <li *ngIf="application.openOrPending"><button type="button" class="btn" (click)="getDocs(application.employee.id, application.applicationWorkFlow.type)">{{application.employee.firstname}}</button> {{application.applicationWorkFlow.status}}
                 <button *ngIf="application.applicationWorkFlow.status === 'pending'" type="button" class="btn btn-success" (click)="approveApplication(application.applicationWorkFlow.id)">Approve Application</button></li>
-            <app-get-documents *ngIf="application.openOrPending"></app-get-documents>
+            <app-get-documents *ngFor="let upload of uploads" [docRes]="upload"></app-get-documents>
         </div>
     </ul>
 </div>
