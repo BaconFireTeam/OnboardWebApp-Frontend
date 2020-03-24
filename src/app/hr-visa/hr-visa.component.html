@@ -1,9 +1,17 @@
 <app-navbar></app-navbar>
 <h2>Manage Visa Status</h2>
 <div>
+    <h3>Visa Status Alerts</h3>
     <ul>
         <div class="form-group" *ngFor="let response of responses">
             <li *ngIf="response.needAlert">{{response.employee.firstname}} {{response.message}} <button type="button" class="btn btn-danger">Send alert</button></li>
+        </div>
+    </ul>
+    <h3>Applictations</h3>
+    <ul>
+        <div class="form-group" *ngFor="let application of applications">
+            <li *ngIf="application.openOrPending"><button type="button" class="btn">{{application.employee.firstname}}</button> {{application.applicationWorkFlow.status}}
+                <button *ngIf="application.applicationWorkFlow.status === 'pending'" type="button" class="btn btn-success" (click)="approveApplication(application.applicationWorkFlow.id)">Approve Application</button></li>
         </div>
     </ul>
 </div>

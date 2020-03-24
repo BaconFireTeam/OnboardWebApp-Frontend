@@ -16,4 +16,17 @@ export class HrVisaService {
     return res.statusList;
     });
   }
+
+  checkApplications(){
+    return this.http.get('http://localhost:4200/hr/application').map((res: ApplicationResponse) => {
+    console.log(res);  
+    return res.applicationList;
+    });
+  }
+
+  updateApplication(applicationId: number, status: string){
+    return this.http.post('http://localhost:4200/hr/application-update', {applicationId, status}).map((res: ApplicationResponse) => {
+      return res.applicationList;
+    });
+  }
 }
