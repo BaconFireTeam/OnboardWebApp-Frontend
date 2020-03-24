@@ -1,0 +1,51 @@
+<app-navbar></app-navbar>
+<br>
+<br>
+<h2>houses detail</h2>
+
+
+<div class="card my-5">
+    HouseAddress:{{house.address}}<br>
+    numberOfPerson:{{house.numberOfPerson}}<br>
+    MaxPerson:{{house.maxPerson}}<br>
+    Landlord Name:{{contact.firstname}} {{contact.lastname}}<br>
+    Landlord email:{{contact.email}}<br>
+    Landlord cellphone:{{contact.cellphone}}
+    <div class="card-body">
+        <table class="table table-bordered table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Firstname</th>
+                    <th scope="col">Lastname</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Cellphone</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let l of list">
+
+                    <td>{{ l.id }}</td>
+                    <td>{{l.firstname}}</td>
+                    <td>{{l.lastname}}</td>
+                    <td>{{l.email}}</td>
+                    <td>{{l.cellphone}}</td>
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<!-- <div>
+    <ul>
+
+        <div class="form-group" *ngFor="let house of listHouse">
+            <p>11111111</p>
+            <li>{{house.address}} {{house.numberOfPerson}} {{house.maxPerson}}<button type="button"
+                    class="btn btn-danger">detail</button></li>
+        </div>
+    </ul>
+</div> -->
