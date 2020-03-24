@@ -20,9 +20,14 @@ import { ReferenceComponent } from './token-login/setup/reference/reference.comp
 import { EmergencyContactComponent } from './token-login/setup/emergency-contact/emergency-contact.component';
 import { DocumentsComponent } from './token-login/setup/documents/documents.component';
 import { EmpVisaComponent } from './emp-visa/emp-visa.component';
+
+import { HrVisaComponent } from './hr-visa/hr-visa.component';
+import { GetDocumentsComponent } from './hr-visa/get-documents/get-documents.component'
+
 import { HouseComponent } from './house/house.component';
 import { HrHouseComponent } from './hr-house/hr-house.component';
 import { HrHouseDetailComponent } from './hr-house-detail/hr-house-detail.component'
+
 
 @NgModule({
   declarations: [
@@ -40,9 +45,14 @@ import { HrHouseDetailComponent } from './hr-house-detail/hr-house-detail.compon
     EmergencyContactComponent,
     DocumentsComponent,
     EmpVisaComponent,
+
+    HrVisaComponent,
+    GetDocumentsComponent
+
     HouseComponent,
     HrHouseComponent,
     HrHouseDetailComponent,
+
   ],
   imports: [
     BrowserModule,

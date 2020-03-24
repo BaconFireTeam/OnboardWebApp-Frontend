@@ -12,10 +12,14 @@ import { ReferenceComponent } from './token-login/setup/reference/reference.comp
 import { EmergencyContactComponent } from './token-login/setup/emergency-contact/emergency-contact.component';
 import { DocumentsComponent } from './token-login/setup/documents/documents.component';
 import { EmpVisaComponent } from './emp-visa/emp-visa.component';
+
+import { HrVisaComponent } from './hr-visa/hr-visa.component';
+
 import { HrHouseComponent } from './hr-house/hr-house.component';
 import { HouseComponent } from './house/house.component';
 import {HrHouseDetailComponent} from './hr-house-detail/hr-house-detail.component';
 import { from } from 'rxjs';
+
 
 const routes: Routes = [
   
@@ -30,10 +34,15 @@ const routes: Routes = [
   { path: 'reference', component: ReferenceComponent },
   { path: 'emergency', component: EmergencyContactComponent },
   { path: 'documents', component: DocumentsComponent },
-  { path: 'emp-visa', component: EmpVisaComponent },
+
+  { path: 'employee/visa', component: EmpVisaComponent },
+  { path: 'hr/visa', component: HrVisaComponent },
+
+  
   { path: 'hr/listhouse', component: HrHouseComponent },
   { path: 'hr/detailhouse', component: HrHouseDetailComponent },
   { path: 'employee/detailhouse', component: HouseComponent },
+
   { path: '**', redirectTo: '/login'}
 ];
 

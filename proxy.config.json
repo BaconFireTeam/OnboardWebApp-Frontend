@@ -9,6 +9,17 @@
         "secure": false
     },
 
+    "/employee/*": {
+        "target": "http://localhost:8080",
+        "secure": false
+    },
+    "/hr/*": {
+        "target": "http://localhost:8080",
+        "secure": false
+    },
+    "/uploadFile": {
+
+
     "/hr/house": {
         "target": "http://localhost:8080",
         "secure": false
@@ -20,11 +31,15 @@
     },
 
     "/employee/housedetail": {
+
         "target": "http://localhost:8080",
         "secure": false
     }
 
 
+
+
     
     
+
 }
