@@ -19,7 +19,8 @@ import { ReferenceComponent } from './token-login/setup/reference/reference.comp
 import { EmergencyContactComponent } from './token-login/setup/emergency-contact/emergency-contact.component';
 import { DocumentsComponent } from './token-login/setup/documents/documents.component';
 import { EmpVisaComponent } from './emp-visa/emp-visa.component';
-import { HrVisaComponent } from './hr-visa/hr-visa.component'
+import { HrVisaComponent } from './hr-visa/hr-visa.component';
+import { GetDocumentsComponent } from './hr-visa/get-documents/get-documents.component'
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { HrVisaComponent } from './hr-visa/hr-visa.component'
     EmergencyContactComponent,
     DocumentsComponent,
     EmpVisaComponent,
-    HrVisaComponent
+    HrVisaComponent,
+    GetDocumentsComponent
   ],
   imports: [
     BrowserModule,
