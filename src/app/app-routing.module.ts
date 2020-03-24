@@ -12,13 +12,18 @@ import { ReferenceComponent } from './token-login/setup/reference/reference.comp
 import { EmergencyContactComponent } from './token-login/setup/emergency-contact/emergency-contact.component';
 import { DocumentsComponent } from './token-login/setup/documents/documents.component';
 import { EmpVisaComponent } from './emp-visa/emp-visa.component';
+import { HrHouseComponent } from './hr-house/hr-house.component';
+import { HouseComponent } from './house/house.component';
+import {HrHouseDetailComponent} from './hr-house-detail/hr-house-detail.component';
+import { from } from 'rxjs';
 
 const routes: Routes = [
+  
   { path: 'login', component: LoginComponent},
   { path: 'token', component: TokenLoginComponent},
   { path: 'setup', component: SetupComponent},
   { path: 'home', component: HomeComponent},
-  { path: 'tokens', component: TokenComponent },
+  { path: 'token-setup', component: TokenComponent },
   { path: 'personal', component: OnboardingComponent },
   { path: 'work-status', component: WorkStatusComponent },
   { path: 'driver', component: DrivingStatusComponent },
@@ -26,6 +31,9 @@ const routes: Routes = [
   { path: 'emergency', component: EmergencyContactComponent },
   { path: 'documents', component: DocumentsComponent },
   { path: 'emp-visa', component: EmpVisaComponent },
+  { path: 'hr/listhouse', component: HrHouseComponent },
+  { path: 'hr/detailhouse', component: HrHouseDetailComponent },
+  { path: 'employee/detailhouse', component: HouseComponent },
   { path: '**', redirectTo: '/login'}
 ];
 
