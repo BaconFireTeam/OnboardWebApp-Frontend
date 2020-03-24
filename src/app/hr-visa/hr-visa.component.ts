@@ -36,4 +36,10 @@ export class HrVisaComponent implements OnInit {
         console.log(this.applications);
       });
   }
+
+  getDocs(id: number, type: string){
+    console.log(id);
+    console.log(type);
+
+  }
 }
