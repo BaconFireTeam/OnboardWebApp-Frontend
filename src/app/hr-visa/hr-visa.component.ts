@@ -42,6 +42,7 @@ export class HrVisaComponent implements OnInit {
         (visaRes) => {
           this.responses = visaRes;
       });
+      console.log("would update applciation");
       console.log(applicationId);
       this.hrVisaService.updateApplication(applicationId, 'closed').subscribe(
       (appRes) => {
