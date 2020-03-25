@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EmpVisaService } from '../shared/_service/emp-visa.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -14,10 +15,15 @@ export class EmpVisaComponent implements OnInit {
   visaAlert: boolean;
   visaMessage: string;
   employeeName: string;
+  parentPath: string;
+  currentPath: string;
 
-  constructor(private empVisaService: EmpVisaService) { }
+  constructor(private empVisaService: EmpVisaService, private router: Router,
+    private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.route.parent.url.subscribe(url => this.parentPath = url[0].path);
+    this.route.url.subscribe(url => this.currentPath = url[0].path);
     this.empVisaService.checkApplication(this.testid).subscribe(
       (res) => {
         console.log(res);
@@ -29,9 +35,9 @@ export class EmpVisaComponent implements OnInit {
     this.empVisaService.checkVisaStatus(this.testid).subscribe(
       (res) => {
         console.log(res);
-        this.visaAlert = res.needAlert;
-        this.visaMessage = res.message;
-        this.employeeName = res.employee.firstname + " " + res.employee.lastname;
+        this.visaAlert = true//res.needAlert;
+        this.visaMessage = 'Hello World' //res.message;
+        this.employeeName = 'Zack Yu'//res.employee.firstname + " " + res.employee.lastname;
       }
     );
   }

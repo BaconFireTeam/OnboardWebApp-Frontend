@@ -19,7 +19,11 @@ import { ReferenceComponent } from './token-login/setup/reference/reference.comp
 import { EmergencyContactComponent } from './token-login/setup/emergency-contact/emergency-contact.component';
 import { DocumentsComponent } from './token-login/setup/documents/documents.component';
 import { EmpVisaComponent } from './emp-visa/emp-visa.component';
-import { HrVisaComponent } from './hr-visa/hr-visa.component'
+import { HrVisaComponent } from './hr-visa/hr-visa.component';
+import { ErrorComponent } from './shared/component/error/error.component';
+import { HeaderComponent } from './shared/component/header/header.component';
+import { LeftNavComponent } from './shared/component/left-nav/left-nav.component';
+import { FooterComponent } from './shared/component/footer/footer.component'
 
 @NgModule({
   declarations: [
@@ -37,7 +41,11 @@ import { HrVisaComponent } from './hr-visa/hr-visa.component'
     EmergencyContactComponent,
     DocumentsComponent,
     EmpVisaComponent,
-    HrVisaComponent
+    HrVisaComponent,
+    ErrorComponent,
+    HeaderComponent,
+    LeftNavComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
