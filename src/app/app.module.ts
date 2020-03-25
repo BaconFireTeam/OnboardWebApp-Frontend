@@ -20,8 +20,11 @@ import { ReferenceComponent } from './token-login/setup/reference/reference.comp
 import { EmergencyContactComponent } from './token-login/setup/emergency-contact/emergency-contact.component';
 import { DocumentsComponent } from './token-login/setup/documents/documents.component';
 import { EmpVisaComponent } from './emp-visa/emp-visa.component';
-
 import { HrVisaComponent } from './hr-visa/hr-visa.component';
+import { ErrorComponent } from './shared/component/error/error.component';
+import { HeaderComponent } from './shared/component/header/header.component';
+import { LeftNavComponent } from './shared/component/left-nav/left-nav.component';
+import { FooterComponent } from './shared/component/footer/footer.component'
 import { GetDocumentsComponent } from './hr-visa/get-documents/get-documents.component'
 
 import { HouseComponent } from './house/house.component';
@@ -45,10 +48,12 @@ import { HrHouseDetailComponent } from './hr-house-detail/hr-house-detail.compon
     EmergencyContactComponent,
     DocumentsComponent,
     EmpVisaComponent,
-
     HrVisaComponent,
-    GetDocumentsComponent
-
+    ErrorComponent,
+    HeaderComponent,
+    LeftNavComponent,
+    FooterComponent,
+    GetDocumentsComponent,
     HouseComponent,
     HrHouseComponent,
     HrHouseDetailComponent,

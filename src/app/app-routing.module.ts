@@ -14,6 +14,7 @@ import { DocumentsComponent } from './token-login/setup/documents/documents.comp
 import { EmpVisaComponent } from './emp-visa/emp-visa.component';
 
 import { HrVisaComponent } from './hr-visa/hr-visa.component';
+import { ErrorComponent } from './shared/component/error/error.component';
 
 import { HrHouseComponent } from './hr-house/hr-house.component';
 import { HouseComponent } from './house/house.component';
@@ -25,25 +26,30 @@ const routes: Routes = [
   
   { path: 'login', component: LoginComponent},
   { path: 'token', component: TokenLoginComponent},
+
+  { path: 'employee', children: [
+    { path: 'personal', component: OnboardingComponent},
+    { path: 'home', component: HomeComponent},
+    { path: 'personal', component: OnboardingComponent },
+    { path: 'work-status', component: WorkStatusComponent },
+    { path: 'driver', component: DrivingStatusComponent },
+    { path: 'reference', component: ReferenceComponent },
+    { path: 'emergency', component: EmergencyContactComponent },
+    { path: 'documents', component: DocumentsComponent },
+    { path: 'visa', component: EmpVisaComponent},
+    { path: 'detailhouse', component: HouseComponent },
+    { path: '**', redirectTo: 'home'}
+  ]},
+
+  { path: 'hr', children: [
+    { path: 'visa', component: HrVisaComponent },
+    { path: 'listhouse', component: HrHouseComponent },
+    { path: 'detailhouse', component: HrHouseDetailComponent }
+  ]},
+
   { path: 'setup', component: SetupComponent},
-  { path: 'home', component: HomeComponent},
   { path: 'token-setup', component: TokenComponent },
-  { path: 'personal', component: OnboardingComponent },
-  { path: 'work-status', component: WorkStatusComponent },
-  { path: 'driver', component: DrivingStatusComponent },
-  { path: 'reference', component: ReferenceComponent },
-  { path: 'emergency', component: EmergencyContactComponent },
-  { path: 'documents', component: DocumentsComponent },
-
-  { path: 'employee/visa', component: EmpVisaComponent },
-  { path: 'hr/visa', component: HrVisaComponent },
-
-  
-  { path: 'hr/listhouse', component: HrHouseComponent },
-  { path: 'hr/detailhouse', component: HrHouseDetailComponent },
-  { path: 'employee/detailhouse', component: HouseComponent },
-
-  { path: '**', redirectTo: '/login'}
+  { path: '**', component: ErrorComponent}
 ];
 
 @NgModule({
