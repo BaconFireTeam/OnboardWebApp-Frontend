@@ -12,6 +12,8 @@ export class HrVisaComponent implements OnInit {
   responses: Array<VisaStatusResponse>;
   applications: Array<ApplicationResponse>;
   uploads:Array<UploadFileResponse>;
+  newExpDate: string = '';
+  error: string;
 
   constructor(private hrVisaService: HrVisaService) { }
 
@@ -30,13 +32,24 @@ export class HrVisaComponent implements OnInit {
       });
   }
 
-  approveApplication(applicationId:number) {
-    console.log(applicationId);
-    this.hrVisaService.updateApplication(applicationId, 'closed').subscribe(
+  approveApplication(applicationId:number, employeeId: number, newExpDate: string) {
+    if(this.newExpDate == ''){
+      this.error = "New Expiration Date is required";
+    }
+    else{
+      console.log(newExpDate);
+      this.hrVisaService.updateVisaStatus(employeeId, newExpDate).subscribe(
+        (visaRes) => {
+          this.responses = visaRes;
+      });
+      console.log("would update applciation");
+      console.log(applicationId);
+      this.hrVisaService.updateApplication(applicationId, 'closed').subscribe(
       (appRes) => {
         this.applications = appRes;
         console.log(this.applications);
       });
+    }
   }
 
   getDocs(id: number, type: string){

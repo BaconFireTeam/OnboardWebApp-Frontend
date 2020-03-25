@@ -39,4 +39,10 @@ export class HrVisaService {
     return res.uploadFileResponseList;
     });
   }
+
+  updateVisaStatus(employeeId: number, newExpDate: string){
+    return this.http.post('http://localhost:4200/hr/visa-update', {employeeId, newExpDate}).map((res: VisaStatusResponse) => {
+      return res.statusList;
+    });
+  }
 }
