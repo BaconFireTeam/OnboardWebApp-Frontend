@@ -12,7 +12,7 @@
         <div class="card">
             <div class="card-block">
                 <div *ngIf="!visaAlert">No Alerts to display for {{employeeName}}</div>
-                <div *ngIf="visaAlert"></div>
+                <div *ngIf="visaAlert">
                     <form (ngSubmit)="onSubmit()" #visaForm="ngForm" class="form-horizontal form-material">
                         <div class="form-group" *ngIf="!appOpen">{{visaMessage}} <button type="button" class="btn btn-info" (click)="startApplication()">Start Application</button></div>
                         <div *ngIf="appOpen && appStatus === 'open'">
@@ -29,8 +29,8 @@
                         </div>
                     </form>
                 </div>
-                <div *ngIf="appStatus === 'pending'">Please wait for HR to approve your paperwork</div>
             </div>
+                <div *ngIf="appStatus === 'pending'">Please wait for HR to approve your paperwork</div>
         </div>
     </div>
 </div>
