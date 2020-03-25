@@ -25,11 +25,16 @@
             ],
             "styles": [
               "./node_modules/bootstrap/dist/css/bootstrap.css",
-              "src/styles.css"
+              "src/styles.css",
+              "./src/assets/css/colors/blue.css"
             ],
             "scripts": [
               "./node_modules/jquery/dist/jquery.js",
-              "./node_modules/bootstrap/dist/js/bootstrap.js"
+              "./node_modules/bootstrap/dist/js/bootstrap.js",
+              "./src/assets/js/jquery.slimscroll.js",
+              "./src/assets/js/waves.js",
+              "./src/assets/js/custom.min.js",
+              "./src/assets/js/flot-data.js"
             ]
           },
           "configurations": {
