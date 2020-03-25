@@ -12,10 +12,18 @@ import { ReferenceComponent } from './token-login/setup/reference/reference.comp
 import { EmergencyContactComponent } from './token-login/setup/emergency-contact/emergency-contact.component';
 import { DocumentsComponent } from './token-login/setup/documents/documents.component';
 import { EmpVisaComponent } from './emp-visa/emp-visa.component';
+
 import { HrVisaComponent } from './hr-visa/hr-visa.component';
 import { ErrorComponent } from './shared/component/error/error.component';
 
+import { HrHouseComponent } from './hr-house/hr-house.component';
+import { HouseComponent } from './house/house.component';
+import {HrHouseDetailComponent} from './hr-house-detail/hr-house-detail.component';
+import { from } from 'rxjs';
+
+
 const routes: Routes = [
+  
   { path: 'login', component: LoginComponent},
   { path: 'token', component: TokenLoginComponent},
 
@@ -29,15 +37,18 @@ const routes: Routes = [
     { path: 'emergency', component: EmergencyContactComponent },
     { path: 'documents', component: DocumentsComponent },
     { path: 'visa', component: EmpVisaComponent},
+    { path: 'detailhouse', component: HouseComponent },
     { path: '**', redirectTo: 'home'}
   ]},
 
   { path: 'hr', children: [
-    { path: 'visa', component: HrVisaComponent }
+    { path: 'visa', component: HrVisaComponent },
+    { path: 'listhouse', component: HrHouseComponent },
+    { path: 'detailhouse', component: HrHouseDetailComponent }
   ]},
 
   { path: 'setup', component: SetupComponent},
-  { path: 'tokens', component: TokenComponent },
+  { path: 'token-setup', component: TokenComponent },
   { path: '**', component: ErrorComponent}
 ];
 

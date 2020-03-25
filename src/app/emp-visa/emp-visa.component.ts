@@ -10,6 +10,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class EmpVisaComponent implements OnInit {
   testid: number = 4;
+  appId: number;
   appOpen: boolean;
   appStatus: string;
   visaAlert: boolean;
@@ -17,6 +18,8 @@ export class EmpVisaComponent implements OnInit {
   employeeName: string;
   parentPath: string;
   currentPath: string;
+  visaFile: FileList;
+
 
   constructor(private empVisaService: EmpVisaService, private router: Router,
     private route: ActivatedRoute) { }
@@ -29,6 +32,7 @@ export class EmpVisaComponent implements OnInit {
         console.log(res);
         this.appOpen = res.openOrPending;
         if(this.appOpen){
+          this.appId = res.applicationWorkFlow.id;
           this.appStatus = res.applicationWorkFlow.status;
         }
       });
@@ -40,10 +44,50 @@ export class EmpVisaComponent implements OnInit {
         this.employeeName = 'Zack Yu'//res.employee.firstname + " " + res.employee.lastname;
       }
     );
+
+    if(this.appStatus !== 'pending') {
+      this.empVisaService.checkVisaStatus(this.testid).subscribe(
+        (res) => {
+          console.log(res);
+          this.visaAlert = res.needAlert;
+          this.visaMessage = res.message;
+          this.employeeName = res.employee.firstname + " " + res.employee.lastname;
+        }
+      );
+    }
+  }
+
+  setFile(event){
+    this.visaFile = event.target.files;
   }
 
   onSubmit() {
+    this.empVisaService.submitApplication(this.visaFile, this.testid, 'OPT').subscribe(
+      (res)=>{
+        if(res){
+          this.empVisaService.updateAppStatus(this.appId).subscribe(
+            (appRes)=>{
+              if(this.appOpen){
+                this.appId = appRes.applicationWorkFlow.id;
+                this.appStatus = appRes.applicationWorkFlow.status;
+              }
+            }
+          );
+        }
+      }
+    )
     
   }
 
+  startApplication(){
+    this.empVisaService.startApplication(this.testid).subscribe(
+      (res) => {
+        console.log(res);
+        this.appOpen = res.openOrPending;
+        if(this.appOpen){
+          this.appId = res.applicationWorkFlow.id;
+          this.appStatus = res.applicationWorkFlow.status;
+        }
+      });
+  }
 }

@@ -11,7 +11,8 @@ import { SetupComponent } from './token-login/setup/setup.component';
 import { NavbarComponent } from './shared/component/navbar/navbar.component';
 import { HomeComponent } from './shared/component/home/home.component';
 import { UserService } from './token-login/setup/user.service'
-import { TokenComponent} from './generate-token/token.component';
+import { HouseService } from './shared/_service/house.service'
+import { TokenComponent } from './generate-token/token.component';
 import { OnboardingComponent } from './token-login/setup/onboarding/onboarding.component';
 import { WorkStatusComponent } from './token-login/setup/work-status/work-status.component';
 import { DrivingStatusComponent } from './token-login/setup/driving-status/driving-status.component';
@@ -24,6 +25,12 @@ import { ErrorComponent } from './shared/component/error/error.component';
 import { HeaderComponent } from './shared/component/header/header.component';
 import { LeftNavComponent } from './shared/component/left-nav/left-nav.component';
 import { FooterComponent } from './shared/component/footer/footer.component'
+import { GetDocumentsComponent } from './hr-visa/get-documents/get-documents.component'
+
+import { HouseComponent } from './house/house.component';
+import { HrHouseComponent } from './hr-house/hr-house.component';
+import { HrHouseDetailComponent } from './hr-house-detail/hr-house-detail.component'
+
 
 @NgModule({
   declarations: [
@@ -45,7 +52,12 @@ import { FooterComponent } from './shared/component/footer/footer.component'
     ErrorComponent,
     HeaderComponent,
     LeftNavComponent,
-    FooterComponent
+    FooterComponent,
+    GetDocumentsComponent,
+    HouseComponent,
+    HrHouseComponent,
+    HrHouseDetailComponent,
+
   ],
   imports: [
     BrowserModule,

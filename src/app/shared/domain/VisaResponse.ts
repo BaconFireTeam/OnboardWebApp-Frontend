@@ -1,5 +1,6 @@
 import { Employee, ApplicationWorkFlow } from './Employee';
 
+
 export class VisaStatusResponse {
     employee: Employee;
     message: string;
@@ -8,7 +9,8 @@ export class VisaStatusResponse {
 }
 
 export class ApplicationResponse {
-    employeeName: string;
+    employee: Employee;
     applicationWorkFlow: ApplicationWorkFlow;
     openOrPending: boolean;
+    applicationList: Array<ApplicationResponse>;
 }
