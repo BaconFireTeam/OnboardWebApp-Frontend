@@ -30,7 +30,7 @@ const routes: Routes = [
   { path: 'employee', children: [
     { path: 'personal', component: OnboardingComponent},
     { path: 'home', component: HomeComponent},
-    // { path: 'personal', component: OnboardingComponent },
+    { path: 'personal', component: OnboardingComponent },
     { path: 'work-status', component: WorkStatusComponent },
     { path: 'driver', component: DrivingStatusComponent },
     { path: 'reference', component: ReferenceComponent },

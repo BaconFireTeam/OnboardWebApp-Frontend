@@ -10,6 +10,8 @@ export class Employee {
     ssn: string;
     dob: string;
     addressList: Address[];
+    visaStartDate: string;
+    visaEndDate: string;
     visa: Visa;
     driverLicense: DriverLicense;
     contacts: Contact[];

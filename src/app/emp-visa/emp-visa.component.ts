@@ -27,6 +27,7 @@ export class EmpVisaComponent implements OnInit {
   ngOnInit(): void {
     this.route.parent.url.subscribe(url => this.parentPath = url[0].path);
     this.route.url.subscribe(url => this.currentPath = url[0].path);
+    
     this.empVisaService.checkApplication(this.testid).subscribe(
       (res) => {
         console.log(res);

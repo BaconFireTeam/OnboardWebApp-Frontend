@@ -11,35 +11,51 @@
         </div>
         <div class="card">
             <div class="card-block">
-                <h3>Visa Status Alerts</h3>
+                <div class="title">
+                    <h3>Visa Status Alerts</h3>
+                </div>
                 <ul>
                     <div class="form-group" *ngFor="let response of responses">
                         <li *ngIf="response.needAlert">{{response.employee.firstname}} {{response.message}} <button type="button" class="btn btn-danger">Send alert</button></li>
                     </div>
                 </ul>
-                <h3>Applictations</h3>
+                <div class="title">
+                    <h3>Applictations</h3>
+                </div>
                 <ul>
                     <div class="form-group" *ngFor="let application of applications">
-                        <li *ngIf="application.openOrPending"><button type="button" class="btn" (click)="getDocs(application.employee.id, application.applicationWorkFlow.type)">{{application.employee.firstname}}</button> {{application.applicationWorkFlow.status}}
+                        <li *ngIf="application.openOrPending"><button type="button" class="btn" (click)="pickEmployee(application.employee); getDocs(application.employee.id, application.applicationWorkFlow.type)">{{application.employee.firstname}}</button> {{application.applicationWorkFlow.status}}
                             <span *ngIf="application.applicationWorkFlow.status === 'pending'" class="form-group">
                                 <label for="newExpDate">New Expiration Date:</label>
-                                <input type="date" [(ngModel)]="newExpDate" class="form-control" id="newExpDate" name="newExpDate" required #exp="ngModel" style="width:15%">
+                                <input type="date" [(ngModel)]="newExpDate" class="form-control" id="newExpDate" name="newExpDate" required #exp="ngModel" style="width:20%">
+                                <button *ngIf="application.applicationWorkFlow.status === 'pending'" type="button" class="btn btn-success" (click)="approveApplication(application.applicationWorkFlow.id, application.employee.id, newExpDate)">Approve Application</button>
                                 <div>{{error}}</div>
                             </span>
-                            <button *ngIf="application.applicationWorkFlow.status === 'pending'" type="button" class="btn btn-success" (click)="approveApplication(application.applicationWorkFlow.id, application.employee.id, newExpDate)">Approve Application</button></li>
-                        <div *ngFor="let upload of uploads">
-                            <app-get-documents *ngIf="upload.employeeID === application.employee.id" [docRes]="upload"></app-get-documents>
+                        </li>
+                        <div class="clicked" *ngIf="clickedEmp.id === application.employee.id">
+                            <div class="personal">
+                                <div>Name: {{clickedEmp.firstname}} {{clickedEmp.lastname}}</div>
+                                <div>Visa Start Date: {{clickedEmp.visaStartDate}}</div>
+                                <div>Visa End Date: {{clickedEmp.visaEndDate}}</div>
+                            </div>
+                            <div class="docs">
+                                <div>{{noDoc}}</div>
+                                <div *ngFor="let upload of uploads">
+                                    <app-get-documents *ngIf="upload.employeeID === application.employee.id" [docRes]="upload"></app-get-documents>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </ul>
             </div>
         </div>
     </div>
+</div>
 
 
 
 
-    <!-- <h2>Manage Visa Status</h2>
+<!-- <h2>Manage Visa Status</h2>
     <div>
         <h3>Visa Status Alerts</h3>
         <ul>
