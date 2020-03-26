@@ -67,19 +67,7 @@ export class EmergencyContactComponent implements OnInit {
     }
 
     console.log(this.employeeService.getEmployee());    
-    // this.router.navigate(['/documents']);
 
-    /**
-     * "firstname": "fn",
-		"lastname": "ln",
-		"middlename": "",
-		"email": "d@gmail.com",
-		"cellphone": "123-231-7432",
-		"alternatephone": "",
-		"gender": "F",
-		"ssn": "12322789",
-		"dob": "11/11/2010",
-     */
     this.employee = this.employeeService.getEmployee();
     this.employeeService.submitForm(this.employee).subscribe(
       (res) => {

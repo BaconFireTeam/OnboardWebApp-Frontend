@@ -20,6 +20,7 @@ import { HrHouseComponent } from './hr-house/hr-house.component';
 import { HouseComponent } from './house/house.component';
 import {HrHouseDetailComponent} from './hr-house-detail/hr-house-detail.component';
 import { from } from 'rxjs';
+import { HrReviewApplicationComponent } from './hr-review-application/hr-review-application.component';
 
 
 const routes: Routes = [
@@ -44,7 +45,8 @@ const routes: Routes = [
   { path: 'hr', children: [
     { path: 'visa', component: HrVisaComponent },
     { path: 'listhouse', component: HrHouseComponent },
-    { path: 'detailhouse', component: HrHouseDetailComponent }
+    { path: 'detailhouse', component: HrHouseDetailComponent },
+    { path: 'reviewapplication', component: HrReviewApplicationComponent}
   ]},
 
   { path: 'setup', component: SetupComponent},
