@@ -9,10 +9,12 @@ export class Employee {
     gender: string;
     ssn: string;
     dob: string;
-    addressList: Address[];
+    
     visa: Visa;
     driverLicense: DriverLicense;
-    contacts: Contact[];
+    addressList: Address[];
+    reference: Reference;
+    emergencyContactList: Contact[];
 }
 
 export class Address {
@@ -36,6 +38,10 @@ export class Visa {
     endDate: string;
 }
 
+export class Reference {
+    email: string;
+}
+
 export class Contact {
     firstname: string;
     lastname: string;
@@ -45,6 +51,7 @@ export class Contact {
     alternatephone: string;
     ssn: string;
     dob: string;
+    
     address: Address[];
     relationship: string;
     isReference: boolean;

@@ -1,13 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Contact } from 'src/app/shared/domain/Employee';
+import { Contact, Employee } from 'src/app/shared/domain/Employee';
 import { EmployeeService } from '../employee.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-emergency-contact',
   templateUrl: './emergency-contact.component.html',
   styleUrls: ['./emergency-contact.component.css']
 })
+
 export class EmergencyContactComponent implements OnInit {
   contact1: Contact = new Contact();
   contact2: Contact = new Contact();
@@ -25,7 +27,12 @@ export class EmergencyContactComponent implements OnInit {
   email2: string;
   relationship2: string;
 
-  constructor(private route: ActivatedRoute, private router: Router, private employeeService: EmployeeService) { }
+  employee: Employee;
+
+  constructor(private route: ActivatedRoute
+    , private router: Router
+    , private employeeService: EmployeeService
+    , private http: HttpClient) { }
 
   ngOnInit(): void {
   }
@@ -60,7 +67,28 @@ export class EmergencyContactComponent implements OnInit {
     }
 
     console.log(this.employeeService.getEmployee());    
-    this.router.navigate(['/documents']);
+    // this.router.navigate(['/documents']);
+
+    /**
+     * "firstname": "fn",
+		"lastname": "ln",
+		"middlename": "",
+		"email": "d@gmail.com",
+		"cellphone": "123-231-7432",
+		"alternatephone": "",
+		"gender": "F",
+		"ssn": "12322789",
+		"dob": "11/11/2010",
+     */
+    this.employee = this.employeeService.getEmployee();
+    this.employeeService.submitForm(this.employee).subscribe(
+      (res) => {
+        console.log(res);
+        console.log(res.employeeId);
+        this.employeeService.setEmployeeId(res.employeeId);
+        this.router.navigate(['/documents']);
+      }
+    );
   }
 
 }

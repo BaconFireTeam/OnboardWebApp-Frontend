@@ -2,7 +2,7 @@
 <div class="card my-5">
     <div class="card-body">
         <form (ngSubmit)="onSubmit()" #contactForm="ngForm">
-
+            
             <div class="form-group">
                 <label for="firstName">First Name: </label>
                 <input type="text" [(ngModel)]="firstName" class="form-control" id="firstName" name="firstName" placeholder="Enter contact First Name" required #fName="ngModel">
