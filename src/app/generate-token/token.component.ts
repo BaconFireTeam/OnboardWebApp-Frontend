@@ -61,7 +61,7 @@ export class TokenComponent implements OnInit {
         }
     }
     goBack() {
-        this.router.navigate(['/tokens']);
+        this.router.navigate(['/token-setup']);
       }
 
 }
