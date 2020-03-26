@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HrVisaService } from '../shared/_service/hr-visa.service';
 import { VisaStatusResponse, ApplicationResponse } from '../shared/domain/VisaResponse';
 import { UploadFileResponse } from '../shared/_service/FileResponse';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-hr-visa',
@@ -14,8 +15,11 @@ export class HrVisaComponent implements OnInit {
   uploads:Array<UploadFileResponse>;
   newExpDate: string = '';
   error: string;
+  parentPath: string;
+  currentPath: string;
 
-  constructor(private hrVisaService: HrVisaService) { }
+  constructor(private hrVisaService: HrVisaService, private router: Router,
+    private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.hrVisaService.checkVisas().subscribe(
