@@ -37,7 +37,7 @@ export class ReferenceComponent implements OnInit {
   }
 
   goBack() {
-    this.router.navigate(['/driver']);
+    this.router.navigate(['employee/driver']);
   }
 
   onSubmit() {
@@ -67,7 +67,7 @@ export class ReferenceComponent implements OnInit {
     this.ref.email = this.email;
     this.employeeService.setReference(this.ref);
     
-    this.router.navigate(['/emergency']);
+    this.router.navigate(['employee/emergency']);
   }
 
 }

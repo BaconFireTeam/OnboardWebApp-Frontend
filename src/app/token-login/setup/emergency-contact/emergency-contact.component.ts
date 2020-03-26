@@ -42,7 +42,7 @@ export class EmergencyContactComponent implements OnInit {
   }
 
   goBack() {
-    this.router.navigate(['/reference']);
+    this.router.navigate(['employee/reference']);
   }
 
   onSubmit() {
@@ -74,7 +74,7 @@ export class EmergencyContactComponent implements OnInit {
         console.log(res);
         console.log(res.employeeId);
         this.employeeService.setEmployeeId(res.employeeId);
-        this.router.navigate(['/documents']);
+        this.router.navigate(['employee/documents']);
       }
     );
   }

@@ -30,7 +30,7 @@ export class SetupComponent {
   }
   
   onSubmit() {
-    this.router.navigate(['/personal']);
+    this.router.navigate(['employee/personal']);
     // this.userService.save(this.account).subscribe(result => this.createAccount());
   }
 
