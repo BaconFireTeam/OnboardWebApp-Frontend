@@ -49,8 +49,8 @@ const routes: Routes = [
     { path: 'listhouse', component: HrHouseComponent },
     { path: 'detailhouse', component: HrHouseDetailComponent },
     { path: 'reviewapplication', component: HrReviewApplicationComponent },
-    { path: 'applicationdetail/:id', component: ApplicationDetailComponent },
-    { path: 'filesdetail/:id', component: ApplicationFilesComponent },
+    { path: 'applicationdetail', component: ApplicationDetailComponent },
+    { path: 'filesdetail', component: ApplicationFilesComponent },
   ]},
 
   { path: 'setup', component: SetupComponent},

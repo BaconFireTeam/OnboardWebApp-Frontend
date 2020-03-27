@@ -30,9 +30,11 @@ export class HrReviewApplicationComponent implements OnInit {
     )
   }
 
-  getDetail(id: number) {
+  getDetail(id: number, appid: number) {
     console.log(id);
     this.hrRevService.setEmployeeID(id);
-    this.router.navigate(['hr/applicationdetail', id]);
+    console.log("appid: " + appid);
+    this.hrRevService.setAppID(appid);
+    this.router.navigate(['hr/applicationdetail']);
   }
 }

@@ -6,6 +6,7 @@ export class OngoingApplicationResponse {
 }
 
 export class Application {
+    appID: number;
     employeeID: number;
     employeeName: string;
     type: string;

@@ -77,5 +77,10 @@
     "/hr/saveFileComment": {
         "target": "http://localhost:8080",
         "secure": false
+    },
+
+    "/hr/updateApplicationStatus": {
+        "target": "http://localhost:8080",
+        "secure": false
     }
 }

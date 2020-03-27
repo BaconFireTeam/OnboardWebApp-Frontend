@@ -54,10 +54,13 @@ export class ApplicationFilesComponent implements OnInit {
     this.revService.setFileComment(this.fileComments)
   
     this.revService.rejectApplication(this.revService.getFormComment(), this.fileComments)
-    
   }
 
   onApproveClick() {
-
+    this.revService.updateApplication("closed").subscribe(
+      (res) => {
+        console.log(res);
+      }
+    );
   }
 }

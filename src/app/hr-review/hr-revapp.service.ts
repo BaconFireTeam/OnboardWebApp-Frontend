@@ -11,13 +11,21 @@ import { Response } from '../shared/domain/Response.model'
   providedIn: 'root'
 })
 export class HrRevappService {
-
+  appID: number;
   employeeID: number;
   
   formComment: string;
   fileComment: Map<number, string> = new Map();
 
   constructor(private http: HttpClient) { }
+
+  setAppID(id: number) {
+    this.appID = id;
+  }
+
+  getAppID() {
+    return this.appID;
+  }
 
   setEmployeeID(id: number) {
     this.employeeID = id;
@@ -83,6 +91,12 @@ export class HrRevappService {
         console.log(res)
       }
     )
+
+    this.updateApplication("reject").subscribe(
+      (res) => {
+        console.log(res);
+      }
+    );
   }
 
   commentOnFiles(fileComments: Map<number, string>) {
@@ -105,7 +119,6 @@ export class HrRevappService {
     commentList.forEach((comment) => {
       fileCommentRequest.commentRequestList.push(comment)
     })
-    console.log(commentList);
 
     return this.http.post('http://localhost:4200/hr/saveFileComment', {fileCommentRequest})
       .map((res: Response) => {
@@ -128,7 +141,13 @@ export class HrRevappService {
       })
   }
 
-  updateApplication(type: string) {
+  updateApplication(status: string) {
+    console.log(this.getAppID());
     
+    return this.http.post('http://localhost:4200/hr/updateApplicationStatus', {applicationId: this.getAppID(), status: status})
+      .map((res: Response) => {
+        console.log(res);
+        return res;
+      })
   }
 }

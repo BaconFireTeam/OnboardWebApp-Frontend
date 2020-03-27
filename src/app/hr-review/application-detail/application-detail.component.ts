@@ -26,8 +26,9 @@ export class ApplicationDetailComponent implements OnInit {
   ngOnInit(): void {
     this.route.parent.url.subscribe(url => this.parentPath = url[0].path);
     this.route.url.subscribe(url => this.currentPath = url[0].path);
-    
+  
     this.employeeId = this.revService.getEmployeeID()
+  
     this.revService.getApplicationDetail(this.employeeId).subscribe(
       (res) => {
         console.log(res);
@@ -43,6 +44,6 @@ export class ApplicationDetailComponent implements OnInit {
   }
 
   goNext() {
-    this.router.navigate(['hr/filesdetail', this.employeeId]);
+    this.router.navigate(['hr/filesdetail']);
   }
 }
