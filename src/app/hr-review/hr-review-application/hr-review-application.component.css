@@ -15,9 +15,15 @@ th , td  {
     padding-right: 50px;
   }
 
-  table tr:nth-child(odd) {
-    background-color: #f1f1f1;
-  }
-  table tr:nth-child(even) {
-    background-color: #ffffff;
-  }
+table tr:nth-child(odd) {
+  background-color: #f1f1f1;
+}
+table tr:nth-child(even) {
+  background-color: #ffffff;
+}
+
+button {
+  border: none; 
+  background-color: transparent;
+  color: #00AFD4;
+}

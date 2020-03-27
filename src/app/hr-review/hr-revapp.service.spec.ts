@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { HrRevappService } from '../../hr-review/hr-revapp.service';
+import { HrRevappService } from './hr-revapp.service';
 
 describe('HrRevappService', () => {
   let service: HrRevappService;

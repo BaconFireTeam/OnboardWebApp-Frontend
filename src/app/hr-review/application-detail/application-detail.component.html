@@ -1,0 +1,78 @@
+<div class="page-wrapper">
+    <div class="container-fluid">
+        <div class="row page-titles">
+            <div class="col-md-12 ">
+                <h3 class="text-themecolor m-b-0 m-t-0">Application Detail</h3><br>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">{{parentPath}}</a></li>
+                    <li class="breadcrumb-item active">{{currentPath}}</li>
+                </ol>
+            </div>
+        </div> 
+
+        <div class="card">
+            <div class="card-block">
+                <h2 class="text-themecolor m-b-0 m-t-0">Form Application</h2>
+                <div class="card my-5">                    
+                    <div class="card-body">
+                        <h3 class="text-themecolor m-b-0 m-t-0">Personal Information</h3><br>
+                        First Name: <input readonly value="{{detail.firstname}}">
+                        Middle Name: <input readonly value="{{detail.middlename}}">
+                        Last Name: <input readonly value="{{detail.lastname}}">
+                        Email: <input readonly value="{{detail.email}}">
+                        Cellphone: <input readonly value="{{detail.cellphone}}">
+                        Alternate Phone: <input readonly value="{{detail.alternatephone}}">
+                        Gender: <input readonly value="{{detail.gender}}">
+                        SSN: <input readonly value="{{detail.ssn}}">
+                        Date Of Birth: <input readonly value="{{detail.dob}}">
+                    </div>
+
+                    <div class="card-body">
+                        <h3 class="text-themecolor m-b-0 m-t-0">Address</h3><br>
+                        Address Line1: <input readonly value="{{detail.addressLine1}}">
+                        Address Line2: <input readonly value="{{detail.addressLine2}}">
+                        City: <input readonly value="{{detail.city}}">
+                        ZipCode: <input readonly value="{{detail.zipCode}}">
+                        State: <input readonly value="{{detail.stateName}}">
+                        State Abbr: <input readonly value="{{detail.stateAbbr}}">
+                    </div>
+
+                    <div class="card-body">
+                        <h3 class="text-themecolor m-b-0 m-t-0">Car & Driver License</h3><br>
+                        Car Info: <input readonly value="{{detail.car}}">
+                        Driver License Number: <input readonly value="{{detail.licenseNum}}">
+                        Driver License Expiration Date: <input readonly value="{{detail.expirationDate}}">
+                    </div>
+
+                    <div class="card-body">
+                        <h3 class="text-themecolor m-b-0 m-t-0">Visa</h3><br>
+                        Visa Type: <input readonly value="{{detail.visaType}}">
+                        Visa Start Date: <input readonly value="{{detail.visaStartDate}}">
+                        Visa End Date: <input readonly value="{{detail.visaEndDate}}">
+                    </div>
+
+                    <div class="card-body">
+                        <h3 class="text-themecolor m-b-0 m-t-0">Emergency Contact</h3><br>
+                        <div *ngFor="let contact of detail.emergencyContactList; let i = index">
+                            <h5>Emergency Contact({{i + 1}})</h5>
+                            First Name: <input readonly value="{{contact.firstname}}">
+                            Middle Name: <input readonly value="{{contact.middlename}}">
+                            Last Name: <input readonly value="{{contact.lastname}}">
+                            Email: <input readonly value="{{contact.email}}">
+                            Cellphone: <input readonly value="{{contact.cellphone}}">
+                            Alternate Phone: <input readonly value="{{contact.alternatephone}}">
+                            Gender: <input readonly value="{{contact.gender}}">
+                            Relationship: <input readonly value="{{contact.relationship}}">
+                        </div>
+                    </div>
+                </div>
+
+                <form (ngSubmit)="onFormCommentSubmit()" #onboardForm="ngForm">
+                    <div class="comment">
+                        <input type="text" placeholder="Leave your comments here">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
