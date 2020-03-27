@@ -14,6 +14,7 @@ export class ApplicationDetailComponent implements OnInit {
   currentPath: string;
 
   detail: ApplicationDetailResponse;
+  employeeId: number;
 
   formComment: string;
   fileComment: string;
@@ -26,7 +27,8 @@ export class ApplicationDetailComponent implements OnInit {
     this.route.parent.url.subscribe(url => this.parentPath = url[0].path);
     this.route.url.subscribe(url => this.currentPath = url[0].path);
     
-    this.revService.getApplicationDetail(this.revService.getEmployeeID()).subscribe(
+    this.employeeId = this.revService.getEmployeeID()
+    this.revService.getApplicationDetail(this.employeeId).subscribe(
       (res) => {
         console.log(res);
         this.detail = res;
@@ -35,6 +37,12 @@ export class ApplicationDetailComponent implements OnInit {
   }
 
   onFormCommentSubmit() {
+    console.log(this.formComment);
+    this.revService.setFormComment(this.formComment);
+    console.log(this.employeeId);
+  }
 
+  goNext() {
+    this.router.navigate(['hr/filesdetail', this.employeeId]);
   }
 }
