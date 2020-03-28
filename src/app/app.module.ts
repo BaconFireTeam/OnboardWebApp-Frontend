@@ -29,7 +29,8 @@ import { GetDocumentsComponent } from './hr-visa/get-documents/get-documents.com
 
 import { HouseComponent } from './house/house.component';
 import { HrHouseComponent } from './hr-house/hr-house.component';
-import { HrHouseDetailComponent } from './hr-house-detail/hr-house-detail.component'
+import { HrHouseDetailComponent } from './hr-house-detail/hr-house-detail.component';
+import { HrEmpComponent } from './hr-emp/hr-emp.component'
 
 
 @NgModule({
@@ -57,6 +58,7 @@ import { HrHouseDetailComponent } from './hr-house-detail/hr-house-detail.compon
     HouseComponent,
     HrHouseComponent,
     HrHouseDetailComponent,
+    HrEmpComponent,
 
   ],
   imports: [
