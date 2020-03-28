@@ -74,6 +74,6 @@ export class OnboardingComponent implements OnInit {
     this.employeeService.addAddress(this.address);
     console.log(this.employeeService.getEmployee());
 
-    this.router.navigate(['/work-status']);
+    this.router.navigate(['employee/work-status']);
   }
 }

@@ -29,7 +29,10 @@ import { GetDocumentsComponent } from './hr-visa/get-documents/get-documents.com
 
 import { HouseComponent } from './house/house.component';
 import { HrHouseComponent } from './hr-house/hr-house.component';
-import { HrHouseDetailComponent } from './hr-house-detail/hr-house-detail.component'
+import { HrHouseDetailComponent } from './hr-house-detail/hr-house-detail.component';
+import { HrReviewApplicationComponent } from './hr-review/hr-review-application/hr-review-application.component';
+import { ApplicationDetailComponent } from './hr-review/application-detail/application-detail.component';
+import { ApplicationFilesComponent } from './hr-review/application-files/application-files.component'
 
 
 @NgModule({
@@ -57,6 +60,9 @@ import { HrHouseDetailComponent } from './hr-house-detail/hr-house-detail.compon
     HouseComponent,
     HrHouseComponent,
     HrHouseDetailComponent,
+    HrReviewApplicationComponent,
+    ApplicationDetailComponent,
+    ApplicationFilesComponent,
 
   ],
   imports: [

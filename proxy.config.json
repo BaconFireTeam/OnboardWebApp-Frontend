@@ -8,15 +8,42 @@
         "target": "http://localhost:8080",
         "secure": false
     },
+
+    "/onboard-application": {
+        "target": "http://localhost:8080",
+        "secure": false
+    },
+    
     "/employee/*": {
         "target": "http://localhost:8080",
         "secure": false
     },
+
     "/hr/*": {
         "target": "http://localhost:8080",
         "secure": false
     },
 
+    "/getDigitalDocument": {
+        "target": "http://localhost:8080",
+        "secure": false
+    },
+
+    "/getPersonalDocument": {
+        "target": "http://localhost:8080",
+        "secure": false
+    },
+
+    "/Documents/*": {
+        "target": "http://localhost:8080",
+        "secure": false
+    },
+
+    "/uploadMultipleFiles": {
+        "target": "http://localhost:8080",
+        "secure": false
+    },
+    
     "/hr/house": {
         "target": "http://localhost:8080",
         "secure": false
@@ -28,15 +55,32 @@
     },
 
     "/employee/housedetail": {
+        "target": "http://localhost:8080",
+        "secure": false
+    },
 
+    "/hr/getApplication": {
+        "target": "http://localhost:8080",
+        "secure": false
+    },
+
+    "/hr/getApplicationDetail": {
+        "target": "http://localhost:8080",
+        "secure": false
+    },
+
+    "/hr/saveFormComment": {
+        "target": "http://localhost:8080",
+        "secure": false
+    },
+
+    "/hr/saveFileComment": {
+        "target": "http://localhost:8080",
+        "secure": false
+    },
+
+    "/hr/updateApplicationStatus": {
         "target": "http://localhost:8080",
         "secure": false
     }
-
-
-
-
-    
-    
-
 }
