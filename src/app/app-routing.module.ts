@@ -20,10 +20,13 @@ import { HrHouseComponent } from './hr-house/hr-house.component';
 import { HouseComponent } from './house/house.component';
 import { HrHouseDetailComponent } from './hr-house-detail/hr-house-detail.component';
 import { from } from 'rxjs';
+import { HrEmpComponent } from './hr-emp/hr-emp.component';
 
 import { HrReviewApplicationComponent } from './hr-review/hr-review-application/hr-review-application.component';
 import { ApplicationDetailComponent } from './hr-review/application-detail/application-detail.component';
 import { ApplicationFilesComponent } from './hr-review/application-files/application-files.component';
+import { ReviewFormComponent } from './emp-review/review-form/review-form.component';
+import { ReviewFileComponent } from './emp-review/review-file/review-file.component';
 
 import { ReportCommentComponent } from './report-comment/report-comment.component';
 import { AddCommentComponent } from './add-comment/add-comment.component';
@@ -47,10 +50,13 @@ const routes: Routes = [
     { path: 'documents', component: DocumentsComponent },
     { path: 'visa', component: EmpVisaComponent},
     { path: 'detailhouse', component: HouseComponent },
+    { path: 'reviewform', component: ReviewFormComponent },
+    { path: 'reviewfile', component: ReviewFileComponent },
     { path: '**', redirectTo: 'home'}
   ]},
 
   { path: 'hr', children: [
+    { path: 'profiles', component: HrEmpComponent },
     { path: 'visa', component: HrVisaComponent },
     { path: 'listhouse', component: HrHouseComponent },
     { path: 'detailhouse', component: HrHouseDetailComponent },

@@ -17,7 +17,9 @@ export class HrRevappService {
   formComment: string;
   fileComment: Map<number, string> = new Map();
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { 
+
+  }
 
   setAppID(id: number) {
     this.appID = id;
@@ -61,7 +63,7 @@ export class HrRevappService {
 
   getApplicationDetail(id: number) {
     console.log(id);
-    return this.http.get('http://localhost:4200/hr/getApplicationDetail', {params: {employeeId: id+""}})
+    return this.http.get('http://localhost:4200/getApplicationDetail', {params: {employeeId: id+""}})
             .map((detailRes: ApplicationDetailResponse) => {
               console.log(detailRes);
               return detailRes;

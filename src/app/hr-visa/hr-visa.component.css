@@ -1,0 +1,20 @@
+.title {
+    margin-left: 2em;
+    margin-top: .5em;
+}
+
+.clicked {
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border: solid;
+    margin-top: 0.5em;
+}
+
+.personal {
+    display: flex;
+    flex-direction: column;
+    border-right: solid;
+    width: 35%;
+}

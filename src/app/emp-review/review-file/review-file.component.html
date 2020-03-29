@@ -1,0 +1,39 @@
+<div class="page-wrapper">
+    <div class="container-fluid">
+        <div class="row page-titles">
+            <div class="col-md-12 ">
+                <h3 class="text-themecolor m-b-0 m-t-0">File Upload Detail</h3><br>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">{{parentPath}}</a></li>
+                    <li class="breadcrumb-item active">{{currentPath}}</li>
+                </ol>
+            </div>
+        </div> 
+
+        <div class="card">
+            <div class="card-block">
+                    <table mdbTable>
+                        <thead>
+                            <tr class="header">
+                            <th *ngFor="let head of headElements" >{{head}} </th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr mdbTableCol *ngFor="let doc of docList; let i = index">
+                                <th>{{i + 1}}</th>
+                                <td>{{doc.fileName}}</td>
+                                <td>
+                                    <a href="{{doc.fileDownloadUri}}" target="_blank">view</a>
+                                </td>
+                                <td>
+                                    <input type="text" value="{{doc.comment}}" id="comment" name="comment" readonly>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+            </div>
+        </div>
+    </div>
+</div>
+
