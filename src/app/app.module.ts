@@ -52,7 +52,9 @@ import { PersonalProfilePanelComponent } from './profile/personal-profile-panel/
 import { NameComponent } from './profile/name/name.component';
 import { AddressComponent } from './profile/address/address.component';
 import { PersonalContactComponent } from './profile/personal-contact/personal-contact.component';
-import { EmploymentComponent } from './profile/employment/employment.component'
+import { EmploymentComponent } from './profile/employment/employment.component';
+import { EmergencyComponent } from './profile/emergency/emergency.component';
+import { DocumentComponent } from './profile/document/document.component'
 
 
 @NgModule({
@@ -106,6 +108,10 @@ import { EmploymentComponent } from './profile/employment/employment.component'
     PersonalContactComponent,
 
     EmploymentComponent,
+
+    EmergencyComponent,
+
+    DocumentComponent,
 
 
   ],

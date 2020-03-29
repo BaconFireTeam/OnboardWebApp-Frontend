@@ -1,0 +1,26 @@
+<h2>Document List</h2>
+
+        <table >
+            <thead>
+                <tr class="header">
+
+                    <th scope="col">Type</th>
+                    <th scope="col">file Name</th>
+                    <th scope="col">DownloadURL</th>
+                    
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let l of uploadFileResponseList">
+
+
+                   
+                    <td>{{l.type}}</td>
+                    <td>{{l.fileName}}</td>
+                    <td>{{l.fileDownloadUri}}</td>
+
+                </tr>
+            </tbody>
+        </table>
+   
