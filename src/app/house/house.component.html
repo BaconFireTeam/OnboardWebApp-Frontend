@@ -14,80 +14,82 @@
         <div class="card">
             <div class="card-block">
 
-                <div class="card my-5">
-                    HouseAddress:{{house.address}}<br>
-                    numberOfPerson:{{house.numberOfPerson}}<br>
-                    MaxPerson:{{house.maxPerson}}<br>
-                    Landlord Name:{{contact.firstname}} {{contact.lastname}}<br>
-                    Landlord email:{{contact.email}}<br>
-                    Landlord cellphone:{{contact.cellphone}}
-                    <div class="card-body">
-                        <table class="table table-bordered table-striped">
-                            <thead class="thead-dark">
-                                <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">Firstname</th>
-                                    <th scope="col">Lastname</th>
-                                    <th scope="col">Email</th>
-                                    <th scope="col">Cellphone</th>
 
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr *ngFor="let l of list">
+                HouseAddress:{{house.address}}<br>
+                numberOfPerson:{{house.numberOfPerson}}<br>
+                MaxPerson:{{house.maxPerson}}<br>
+                Landlord Name:{{contact.firstname}} {{contact.lastname}}<br>
+                Landlord email:{{contact.email}}<br>
+                Landlord cellphone:{{contact.cellphone}}
+                <br>
+                <br>
+                Employee:
+                <table mdbTable>
+                    <thead>
+                        <tr class="header">
+                            <th scope="col">#</th>
+                            <th scope="col">Firstname</th>
+                            <th scope="col">Lastname</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Cellphone</th>
 
-                                    <td><button type="button" class="btn btn-outline-dark"
-                                            (click)="personPage(l)">{{ l.id }}</button></td>
-                                    <td>{{l.firstname}}</td>
-                                    <td>{{l.lastname}}</td>
-                                    <td>{{l.email}}</td>
-                                    <td>{{l.cellphone}}</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr mdbTableCol *ngFor="let l of list">
 
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                            <td><button type="button" class="btn btn-outline-dark"
+                                    (click)="personPage(l)">{{ l.id }}</button></td>
+                            <td>{{l.firstname}}</td>
+                            <td>{{l.lastname}}</td>
+                            <td>{{l.email}}</td>
+                            <td>{{l.cellphone}}</td>
 
-
-                    <div class="card-body">
-                        Reports:
-                        <table class="table table-bordered table-striped">
-                            <thead class="thead-dark">
-                                <tr>
-                                    <th scope="col">#</th>
-
-                                    <th scope="col">ReportDate</th>
-                                    <th scope="col">Title</th>
-                                    <th scope="col">Description</th>
-                                    <th scope="col">Status</th>
-                                    <th scope="col">See Comments</th>
-
-
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr *ngFor="let r of reports">
-                                    <td>{{r.id}}</td>
-
-                                    <td>{{r.reportDate}}</td>
-                                    <td>{{r.title}}</td>
-                                    <td>{{r.description}}</td>
-                                    <td>{{r.status}}</td>
-                                    <!-- <td><button type="button" class="btn btn-info">Comment</button></td> -->
-                                    <td><button [disabled]="r.status==='Closed'" type="button" class="btn btn-info"
-                                            (click)="comment(r)">Comment</button></td>
+                        </tr>
+                    </tbody>
+                </table>
 
 
 
-                                </tr>
-                            </tbody>
-                        </table>
+                <br>
+                Reports:
+                <table mdbTable>
+                    <thead>
+                        <tr class="header">
+                            <th scope="col">#</th>
 
-                        <button type="button" class="btn btn-primary" (click)="addReport()">Add Report</button>
+                            <th scope="col">ReportDate</th>
+                            <th scope="col">Title</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">See Comments</th>
 
 
-                    </div>
-                </div>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr mdbTableCol *ngFor="let r of reports">
+                            <td>{{r.id}}</td>
+
+                            <td>{{r.reportDate}}</td>
+                            <td>{{r.title}}</td>
+                            <td>{{r.description}}</td>
+                            <td>{{r.status}}</td>
+                            <!-- <td><button type="button" class="btn btn-info">Comment</button></td> -->
+                            <td><button [disabled]="r.status==='Closed'" type="button" class="btn btn-info"
+                                    (click)="comment(r)">Comment</button></td>
+
+
+
+                        </tr>
+                    </tbody>
+                </table>
+<br>
+                <button type="button" class="btn btn-primary" (click)="addReport()">Add Report</button>
+
+
+
+
             </div>
         </div>
     </div>
