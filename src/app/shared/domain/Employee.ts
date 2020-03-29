@@ -16,6 +16,7 @@ export class Employee {
 
     visa: Visa;
     driverLicense: DriverLicense;
+    
     reference: Reference;
     emergencyContactList: Contact[];
 }
