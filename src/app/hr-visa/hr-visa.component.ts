@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { HrVisaService } from '../shared/_service/hr-visa.service';
 import { VisaStatusResponse, ApplicationResponse } from '../shared/domain/VisaResponse';
 import { UploadFileResponse } from '../shared/_service/FileResponse';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Employee } from '../shared/domain/Employee';
+import { EmployeeService } from '../token-login/setup/employee.service';
 
 @Component({
   selector: 'app-hr-visa',
@@ -14,8 +17,13 @@ export class HrVisaComponent implements OnInit {
   uploads:Array<UploadFileResponse>;
   newExpDate: string = '';
   error: string;
+  parentPath: string;
+  currentPath: string;
+  clickedEmp: Employee = new Employee();
+  noDoc: string;
 
-  constructor(private hrVisaService: HrVisaService) { }
+  constructor(private hrVisaService: HrVisaService, private router: Router,
+    private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.hrVisaService.checkVisas().subscribe(
@@ -30,6 +38,10 @@ export class HrVisaComponent implements OnInit {
         this.applications = appRes;
         console.log(this.applications);
       });
+  }
+
+  pickEmployee(picked: Employee) {
+    this.clickedEmp = picked;
   }
 
   approveApplication(applicationId:number, employeeId: number, newExpDate: string) {
@@ -59,7 +71,11 @@ export class HrVisaComponent implements OnInit {
       (appRes) => {
         this.uploads = appRes;
         console.log(this.uploads);
+        if(this.uploads.length == 0){
+          this.noDoc = "No Documents Uploaded Yet"
+        } else {
+          this.noDoc = null;
+        }
       });
-
   }
 }

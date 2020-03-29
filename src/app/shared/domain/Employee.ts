@@ -9,7 +9,11 @@ export class Employee {
     gender: string;
     ssn: string;
     dob: string;
-    
+
+    addressList: Address[];
+    visaStartDate: string;
+    visaEndDate: string;
+
     visa: Visa;
     driverLicense: DriverLicense;
     addressList: Address[];

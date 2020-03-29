@@ -63,6 +63,7 @@
         "target": "http://localhost:8080",
         "secure": false
     },
+
     "/hr/changeStatus": {
         "target": "http://localhost:8080",
         "secure": false
@@ -88,6 +89,12 @@
         "secure": false
     },
 
+    "/uploadFile": {
+        "target": "http://localhost:8080",
+        "secure": false
+    }
+
+
     "/hr/getApplication": {
         "target": "http://localhost:8080",
         "secure": false
@@ -99,10 +106,12 @@
     },
 
 
+
     "/hr/saveFormComment": {
         "target": "http://localhost:8080",
         "secure": false
     },
+
 
     "/hr/saveFileComment": {
         "target": "http://localhost:8080",
