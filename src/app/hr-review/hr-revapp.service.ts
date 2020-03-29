@@ -54,7 +54,7 @@ export class HrRevappService {
   }
 
   getApplicationList() {
-    return this.http.get('http://localhost:4200/hr/getApplication').
+    return this.http.get('http://localhost:4200/api/hr/getApplication').
       map((appRes: OngoingApplicationResponse) => {
         console.log(appRes);
         return appRes.applicationList;
@@ -63,7 +63,7 @@ export class HrRevappService {
 
   getApplicationDetail(id: number) {
     console.log(id);
-    return this.http.get('http://localhost:4200/getApplicationDetail', {params: {employeeId: id+""}})
+    return this.http.get('http://localhost:4200/api/getApplicationDetail', {params: {employeeId: id+""}})
             .map((detailRes: ApplicationDetailResponse) => {
               console.log(detailRes);
               return detailRes;
@@ -71,7 +71,7 @@ export class HrRevappService {
   }
 
   getDocumentList(id: number) {
-    return this.http.get('http://localhost:4200/getPersonalDocument', {params: {employeeID: id+"", type: "Onboarding"}})
+    return this.http.get('http://localhost:4200/api/getPersonalDocument', {params: {employeeID: id+"", type: "Onboarding"}})
       .map((docRes: PersonalDocumentResponse) => {
           console.log(docRes);
           return docRes.uploadFileResponseList;
@@ -122,7 +122,7 @@ export class HrRevappService {
       fileCommentRequest.commentRequestList.push(comment)
     })
 
-    return this.http.post('http://localhost:4200/hr/saveFileComment', {fileCommentRequest})
+    return this.http.post('http://localhost:4200/api/hr/saveFileComment', {fileCommentRequest})
       .map((res: Response) => {
         console.log(res);
         return res;
@@ -136,7 +136,7 @@ export class HrRevappService {
 
     console.log(commentRequest)
 
-    return this.http.post('http://localhost:4200/hr/saveFormComment', commentRequest)
+    return this.http.post('http://localhost:4200/api/hr/saveFormComment', commentRequest)
       .map((res: Response) => {
         console.log(res);
         return res;
@@ -146,7 +146,7 @@ export class HrRevappService {
   updateApplication(status: string) {
     console.log(this.getAppID());
     
-    return this.http.post('http://localhost:4200/hr/updateApplicationStatus', {applicationId: this.getAppID(), status: status})
+    return this.http.post('http://localhost:4200/api/hr/updateApplicationStatus', {applicationId: this.getAppID(), status: status})
       .map((res: Response) => {
         console.log(res);
         return res;
