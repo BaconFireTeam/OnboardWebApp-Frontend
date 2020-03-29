@@ -1,0 +1,27 @@
+<br>
+<h2>Emergency Contact List</h2>
+
+        <table >
+            <thead>
+                <tr class="header">
+
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Cellphone</th>
+                    <th scope="col">Address</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let l of emergencyContactList">
+
+
+                    <td>{{l.firstname}} {{l.lastname}}</td>
+                    <td>{{l.email}}</td>
+                    <td>{{l.cellphone}}</td>
+                    <td>Not Assign</td>
+
+                </tr>
+            </tbody>
+        </table>
+   
