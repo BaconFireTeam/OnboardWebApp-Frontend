@@ -1,16 +1,19 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { House } from '../domain/hr-house.model';
+import { House, FacilityReport, Employee } from '../domain/hr-house.model';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { HouseResponse, FacilityReportResponse, FacilityReportDetailResponse, ListHouseResponse, HouseHrResponse } from '../domain/hr-house.model';
+import { HouseResponse, FacilityReportResponse, FacilityReportDetailResponse, ListHouseResponse, HouseHrResponse, ServiceStatus } from '../domain/hr-house.model';
 
 @Injectable({
     providedIn: 'root'
 })
 
 export class HouseService {
-    employeeID=1;
-    houseID=1;
+    employeeID = 1;
+    houseID: number;
+    report: FacilityReport;
+    createdDate: string;
+    employee: Employee;
 
     constructor(private http: HttpClient) {
     }
@@ -61,6 +64,35 @@ export class HouseService {
 
     getHrReportDetail(reportID: number) {
         return this.http.post('http://localhost:4200/hr/reportdetail', { reportID }).map((res: FacilityReportDetailResponse) => {
+            console.log(res);
+            return res;
+        });
+    }
+
+    addCommentHr(employeeID: number, reportID: number, comment: string, createdDate: string) {
+        return this.http.post('http://localhost:4200/hr/addcomment', { employeeID, reportID, comment, createdDate }).map((res: ServiceStatus) => {
+            console.log(res);
+            return res;
+        });
+    }
+
+    addComment(employeeID: number, reportID: number, comment: string, createdDate: string) {
+        return this.http.post('http://localhost:4200/employee/addcomment', { employeeID, reportID, comment, createdDate }).map((res: ServiceStatus) => {
+            console.log(res);
+            return res;
+        });
+    }
+
+    changeStatus(reportID: number) {
+        return this.http.post('http://localhost:4200/hr/changeStatus', { reportID }).map((res: ServiceStatus) => {
+            console.log(res);
+            return res;
+        });
+    }
+
+    addReport(title: string, employeeID: number, description: string) {
+        console.log(1111);
+        return this.http.post('http://localhost:4200/employee/addreport', { title, employeeID, description }).map((res: ServiceStatus) => {
             console.log(res);
             return res;
         });
