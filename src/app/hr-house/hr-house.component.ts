@@ -49,4 +49,9 @@ export class HrHouseComponent implements OnInit {
 
   }
 
+  detail(houseID:number) {
+    this.houseService.houseID=houseID;
+    this.router.navigate(['/hr/detailhouse']);
+  }
+
 }
