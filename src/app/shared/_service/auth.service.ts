@@ -47,7 +47,7 @@ export class AuthService {
   }
 
   checkToken(email: string, token: string) {
-    return this.http.post('http://localhost:4200/token', {email, token}).map((res: Response) => {
+    return this.http.post('http://localhost:4200/api/token', {email, token}).map((res: Response) => {
       console.log(res);
       return res.serviceStatus;
     });
