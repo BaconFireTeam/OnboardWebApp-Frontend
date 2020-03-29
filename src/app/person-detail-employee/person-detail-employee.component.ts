@@ -12,14 +12,14 @@ import{ApplicationDetailResponse} from '../shared/domain/ApplicationDetailRespon
   styleUrls: ['./person-detail-employee.component.css']
 })
 export class PersonDetailEmployeeComponent implements OnInit {
-  detail : ApplicationDetailResponse;
+  employee : ApplicationDetailResponse;
   
   constructor(private router: Router, private service: HrRevappService) { }
 
   ngOnInit(): void {
     this.service.getApplicationDetail(52).subscribe(data => {
-      this.detail = data;
-      console.log(this.detail);
+      this.employee = data;
+      console.log(this.employee);
     })
   }
   

@@ -34,6 +34,7 @@ import { AddCommentHrComponent } from './add-comment-hr/add-comment-hr.component
 import { AddReportComponent } from './add-report/add-report.component';
 import { PersonDetailComponent } from './person-detail/person-detail.component';
 import { PersonDetailEmployeeComponent } from './person-detail-employee/person-detail-employee.component'
+import { PersonalProfileComponent } from './profile/personal-profile/personal-profile.component';
 const routes: Routes = [
 
   { path: 'login', component: LoginComponent },
@@ -82,7 +83,7 @@ const routes: Routes = [
   { path: 'add-comment-hr', component: AddCommentHrComponent },
   { path: 'add-report', component: AddReportComponent },
   { path: 'person-detail', component: PersonDetailComponent },
-  { path: 'person-detail-employee', component: PersonDetailEmployeeComponent },
+  { path: 'person-detail-employee', component: PersonalProfileComponent },
   // { path: 'employee/detailhouse', component: HouseComponent },
   { path: '**', redirectTo: '/login' }
 
