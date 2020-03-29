@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApplicationDetailResponse,UploadFileResponse} from 'src/app/shared/domain/ApplicationDetailResponse';
 import { ProfileService } from '../profile.service';
+import { PersonalDocumentResponse,PersonalDocument } from 'src/app/shared/domain/PersonalDocumentResponse';
 
 @Component({
   selector: 'app-document',
@@ -8,15 +9,14 @@ import { ProfileService } from '../profile.service';
   styleUrls: ['./document.component.css']
 })
 export class DocumentComponent implements OnInit {
-  employee: ApplicationDetailResponse = new ApplicationDetailResponse();
-  uploadFileResponseList: UploadFileResponse[];
+  employee: PersonalDocument[];
+  
 
   constructor(private service: ProfileService) { }
 
   ngOnInit(): void {
-    this.employee = this.service.getEmployee();
-    this.uploadFileResponseList = this.employee.uploadFileResponseList;
-    console.log(this.uploadFileResponseList);
+    this.employee = this.service.getEmployee2();
+    
   }
 
 }
