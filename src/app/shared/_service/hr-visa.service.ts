@@ -32,10 +32,10 @@ export class HrVisaService {
   }
 
   getDocuments(employeeID: number, type: string) {
-    let param: FormData = new FormData();
-    param.append('employeeID', employeeID+"");
-    param.append('type', type);
-    return this.http.post('http://localhost:4200/api/employee/getPersonalDocument', param).map((res: GetDocumentsListResponse) => { 
+    // let param: FormData = new FormData();
+    // param.append('employeeID', employeeID+"");
+    // param.append('type', type);
+    return this.http.get('http://localhost:4200/api/getPersonalDocument',{params: {"employeeID":  employeeID+"", "type": type}}).map((res: GetDocumentsListResponse) => { 
     return res.uploadFileResponseList;
     });
   }

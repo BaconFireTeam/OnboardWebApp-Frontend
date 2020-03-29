@@ -10,7 +10,7 @@ export class TokenService {
   private tokensUrl: string;
 
   constructor(private http: HttpClient) {
-    this.tokensUrl = 'http://localhost:4200/token-setup';
+    this.tokensUrl = 'http://localhost:4200/api/token-setup';
   }
 
   save(token: Token) {

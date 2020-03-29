@@ -30,7 +30,7 @@ export class EmpReviewApplicationService {
 
   getApplicationDetail() {
     
-    return this.http.get('http://localhost:4200/getApplicationDetail', {params: {employeeId: this.getEmployeeID()+""}})
+    return this.http.get('http://localhost:4200/api/getApplicationDetail', {params: {employeeId: this.getEmployeeID()+""}})
             .map((detailRes: ApplicationDetailResponse) => {
               console.log(detailRes);
               return detailRes;
@@ -38,7 +38,7 @@ export class EmpReviewApplicationService {
   }
 
   getFormComment() {
-    return this.http.get('http://localhost:4200/employee/getFormComment', {params: {employeeID: this.getEmployeeID()+""}})
+    return this.http.get('http://localhost:4200/api/employee/getFormComment', {params: {employeeID: this.getEmployeeID()+""}})
             .map((res: FormCommentResponse) => {
               console.log(res);
               return res.comment;
@@ -46,7 +46,7 @@ export class EmpReviewApplicationService {
   }
 
   getFileComment() {
-    return this.http.get('http://localhost:4200/employee/getFileComment', {params: {employeeID: this.getEmployeeID()+""}})
+    return this.http.get('http://localhost:4200/api/employee/getFileComment', {params: {employeeID: this.getEmployeeID()+""}})
             .map((fileRes: FileCommentResponse) => {
               return fileRes.fileCommentList;
             })
