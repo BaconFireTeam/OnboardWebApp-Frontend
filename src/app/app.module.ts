@@ -31,6 +31,7 @@ import { HouseComponent } from './house/house.component';
 import { HrHouseComponent } from './hr-house/hr-house.component';
 import { HrHouseDetailComponent } from './hr-house-detail/hr-house-detail.component';
 
+
 import { ReportCommentComponent } from './report-comment/report-comment.component';
 import { AddCommentComponent } from './add-comment/add-comment.component';
 import { AddReportComponent } from './add-report/add-report.component';
@@ -44,6 +45,8 @@ import { ApplicationFilesComponent } from './hr-review/application-files/applica
 import { ReviewFormComponent } from './emp-review/review-form/review-form.component';
 import { ReviewFileComponent } from './emp-review/review-file/review-file.component'
 
+
+import { HrEmpComponent } from './hr-emp/hr-emp.component'
 
 
 @NgModule({
@@ -71,6 +74,7 @@ import { ReviewFileComponent } from './emp-review/review-file/review-file.compon
     HouseComponent,
     HrHouseComponent,
     HrHouseDetailComponent,
+
     HrReviewApplicationComponent,
     ApplicationDetailComponent,
     ApplicationFilesComponent,
@@ -82,6 +86,10 @@ import { ReviewFileComponent } from './emp-review/review-file/review-file.compon
     PersonDetailEmployeeComponent,
     ReviewFormComponent,
     ReviewFileComponent,
+
+    HrEmpComponent,
+
+
   ],
 
   imports: [
