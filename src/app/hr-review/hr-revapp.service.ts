@@ -17,7 +17,9 @@ export class HrRevappService {
   formComment: string;
   fileComment: Map<number, string> = new Map();
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { 
+
+  }
 
   setAppID(id: number) {
     this.appID = id;

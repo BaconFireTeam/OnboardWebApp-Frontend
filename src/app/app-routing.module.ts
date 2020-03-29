@@ -23,6 +23,8 @@ import { from } from 'rxjs';
 import { HrReviewApplicationComponent } from './hr-review/hr-review-application/hr-review-application.component';
 import { ApplicationDetailComponent } from './hr-review/application-detail/application-detail.component';
 import { ApplicationFilesComponent } from './hr-review/application-files/application-files.component';
+import { ReviewFormComponent } from './emp-review/review-form/review-form.component';
+import { ReviewFileComponent } from './emp-review/review-file/review-file.component';
 
 
 const routes: Routes = [
@@ -41,6 +43,8 @@ const routes: Routes = [
     { path: 'documents', component: DocumentsComponent },
     { path: 'visa', component: EmpVisaComponent},
     { path: 'detailhouse', component: HouseComponent },
+    { path: 'reviewform', component: ReviewFormComponent },
+    { path: 'reviewfile', component: ReviewFileComponent },
     { path: '**', redirectTo: 'home'}
   ]},
 

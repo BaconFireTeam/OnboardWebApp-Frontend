@@ -82,5 +82,15 @@
     "/hr/updateApplicationStatus": {
         "target": "http://localhost:8080",
         "secure": false
+    },
+
+    "employee/getFormComment": {
+        "target": "http://localhost:8080",
+        "secure": false
+    },
+
+    "employee/getFileComment": {
+        "target": "http://localhost:8080",
+        "secure": false
     }
 }

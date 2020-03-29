@@ -32,7 +32,9 @@ import { HrHouseComponent } from './hr-house/hr-house.component';
 import { HrHouseDetailComponent } from './hr-house-detail/hr-house-detail.component';
 import { HrReviewApplicationComponent } from './hr-review/hr-review-application/hr-review-application.component';
 import { ApplicationDetailComponent } from './hr-review/application-detail/application-detail.component';
-import { ApplicationFilesComponent } from './hr-review/application-files/application-files.component'
+import { ApplicationFilesComponent } from './hr-review/application-files/application-files.component';
+import { ReviewFormComponent } from './emp-review/review-form/review-form.component';
+import { ReviewFileComponent } from './emp-review/review-file/review-file.component'
 
 
 @NgModule({
@@ -63,7 +65,8 @@ import { ApplicationFilesComponent } from './hr-review/application-files/applica
     HrReviewApplicationComponent,
     ApplicationDetailComponent,
     ApplicationFilesComponent,
-
+    ReviewFormComponent,
+    ReviewFileComponent,
   ],
   imports: [
     BrowserModule,
