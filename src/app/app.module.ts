@@ -11,14 +11,43 @@ import { SetupComponent } from './token-login/setup/setup.component';
 import { NavbarComponent } from './shared/component/navbar/navbar.component';
 import { HomeComponent } from './shared/component/home/home.component';
 import { UserService } from './token-login/setup/user.service'
-import { TokenComponent} from './generate-token/token.component';
+import { HouseService } from './shared/_service/house.service'
+import { TokenComponent } from './generate-token/token.component';
 import { OnboardingComponent } from './token-login/setup/onboarding/onboarding.component';
 import { WorkStatusComponent } from './token-login/setup/work-status/work-status.component';
 import { DrivingStatusComponent } from './token-login/setup/driving-status/driving-status.component';
 import { ReferenceComponent } from './token-login/setup/reference/reference.component';
 import { EmergencyContactComponent } from './token-login/setup/emergency-contact/emergency-contact.component';
 import { DocumentsComponent } from './token-login/setup/documents/documents.component';
-import { EmpVisaComponent } from './emp-visa/emp-visa.component'
+import { EmpVisaComponent } from './emp-visa/emp-visa.component';
+import { HrVisaComponent } from './hr-visa/hr-visa.component';
+import { ErrorComponent } from './shared/component/error/error.component';
+import { HeaderComponent } from './shared/component/header/header.component';
+import { LeftNavComponent } from './shared/component/left-nav/left-nav.component';
+import { FooterComponent } from './shared/component/footer/footer.component'
+import { GetDocumentsComponent } from './hr-visa/get-documents/get-documents.component'
+
+import { HouseComponent } from './house/house.component';
+import { HrHouseComponent } from './hr-house/hr-house.component';
+import { HrHouseDetailComponent } from './hr-house-detail/hr-house-detail.component';
+
+
+import { ReportCommentComponent } from './report-comment/report-comment.component';
+import { AddCommentComponent } from './add-comment/add-comment.component';
+import { AddReportComponent } from './add-report/add-report.component';
+import { AddCommentHrComponent } from './add-comment-hr/add-comment-hr.component';
+import { PersonDetailComponent } from './person-detail/person-detail.component';
+import { PersonDetailEmployeeComponent } from './person-detail-employee/person-detail-employee.component'
+
+import { HrReviewApplicationComponent } from './hr-review/hr-review-application/hr-review-application.component';
+import { ApplicationDetailComponent } from './hr-review/application-detail/application-detail.component';
+import { ApplicationFilesComponent } from './hr-review/application-files/application-files.component';
+import { ReviewFormComponent } from './emp-review/review-form/review-form.component';
+import { ReviewFileComponent } from './emp-review/review-file/review-file.component'
+
+
+import { HrEmpComponent } from './hr-emp/hr-emp.component'
+
 
 @NgModule({
   declarations: [
@@ -35,8 +64,34 @@ import { EmpVisaComponent } from './emp-visa/emp-visa.component'
     ReferenceComponent,
     EmergencyContactComponent,
     DocumentsComponent,
-    EmpVisaComponent
+    EmpVisaComponent,
+    HrVisaComponent,
+    ErrorComponent,
+    HeaderComponent,
+    LeftNavComponent,
+    FooterComponent,
+    GetDocumentsComponent,
+    HouseComponent,
+    HrHouseComponent,
+    HrHouseDetailComponent,
+
+    HrReviewApplicationComponent,
+    ApplicationDetailComponent,
+    ApplicationFilesComponent,
+    ReportCommentComponent,
+    AddCommentComponent,
+    AddReportComponent,
+    AddCommentHrComponent,
+    PersonDetailComponent,
+    PersonDetailEmployeeComponent,
+    ReviewFormComponent,
+    ReviewFileComponent,
+
+    HrEmpComponent,
+
+
   ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,

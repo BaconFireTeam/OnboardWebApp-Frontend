@@ -1,0 +1,30 @@
+<app-navbar></app-navbar>
+<br>
+<br>
+<h2>List of all houses</h2>
+
+<div class="card my-5">
+    <div class="card-body">
+        <table class="table table-bordered table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">numberOfPerson</th>
+                    <th scope="col">maxPerson</th>
+                    <th scope="col">seeDetail</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let house of listHouse">
+
+                    <td>{{ house.id }}</td>
+                    <td>{{ house.address }}</td>
+                    <td>{{ house.numberOfPerson }}</td>
+                    <td>{{ house.maxPerson}}</td>
+                    <td><button type="button" class="btn btn-info" (click)="detail(house.id)">Detail</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

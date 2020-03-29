@@ -69,19 +69,19 @@ export class TokenLoginComponent implements OnInit {
       }
 // comment for front end test
 //////////////////////////////////////////////////////////////////////////      
-  //     this.authService.checkToken(this.f.email.value, this.f.token.value).subscribe(
-  //       (res) => {
-  //         console.log(res);
+    //   this.authService.checkToken(this.f.email.value, this.f.token.value).subscribe(
+    //     (res) => {
+    //       console.log(res);
         
-  //           if (res.success) {
-  //               this.registerService.setEmail(this.f.email.value);
-  //               this.router.navigate(['/setup']);
-  //           } else {
-  //               this.loading = false;
-  //               console.log("invalid");
-  //           }
-  //       }
-  //     );
+    //         if (res.success) {
+    //             this.registerService.setEmail(this.f.email.value);
+    //             this.router.navigate(['/setup']);
+    //         } else {
+    //             this.loading = false;
+    //             console.log("invalid");
+    //         }
+    //     }
+    //   );
   }
 
 }

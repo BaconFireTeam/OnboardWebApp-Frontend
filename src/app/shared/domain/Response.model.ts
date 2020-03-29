@@ -1,4 +1,5 @@
 import { User, Role } from './User';
+import { DigitalDocuments } from './DocumentResponse'
 
 export class ServiceStatus {
     statusCode: string;
@@ -16,4 +17,5 @@ export class Response {
     serviceStatus: ServiceStatus;
     user: User;
     role: Role;
+    employeeId: number;
 }
