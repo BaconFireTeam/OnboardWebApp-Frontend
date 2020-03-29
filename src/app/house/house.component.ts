@@ -10,6 +10,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class HouseComponent implements OnInit {
 
+  parentPath: string;
+  currentPath: string;
   house: House;
   employeeID: number;
   contact: Contact;
@@ -19,9 +21,12 @@ export class HouseComponent implements OnInit {
   reportDetails: Array<FacilityReportDetail>;
   reportID: number;
 
-  constructor(private houseService: HouseService, private router: Router) { }
+  constructor(private houseService: HouseService, private router: Router,private route: ActivatedRoute) { }
 
   ngOnInit(){
+
+    this.route.parent.url.subscribe(url => this.parentPath = url[0].path);
+    this.route.url.subscribe(url => this.currentPath = url[0].path);
 
 
     this.houseService.getHouseDetail(this.houseService.employeeID).subscribe(data => {
