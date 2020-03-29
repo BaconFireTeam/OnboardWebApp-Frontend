@@ -30,12 +30,18 @@ import { GetDocumentsComponent } from './hr-visa/get-documents/get-documents.com
 import { HouseComponent } from './house/house.component';
 import { HrHouseComponent } from './hr-house/hr-house.component';
 import { HrHouseDetailComponent } from './hr-house-detail/hr-house-detail.component';
+
 import { ReportCommentComponent } from './report-comment/report-comment.component';
 import { AddCommentComponent } from './add-comment/add-comment.component';
 import { AddReportComponent } from './add-report/add-report.component';
 import { AddCommentHrComponent } from './add-comment-hr/add-comment-hr.component';
 import { PersonDetailComponent } from './person-detail/person-detail.component';
 import { PersonDetailEmployeeComponent } from './person-detail-employee/person-detail-employee.component'
+
+import { HrReviewApplicationComponent } from './hr-review/hr-review-application/hr-review-application.component';
+import { ApplicationDetailComponent } from './hr-review/application-detail/application-detail.component';
+import { ApplicationFilesComponent } from './hr-review/application-files/application-files.component'
+
 
 
 @NgModule({
@@ -63,6 +69,9 @@ import { PersonDetailEmployeeComponent } from './person-detail-employee/person-d
     HouseComponent,
     HrHouseComponent,
     HrHouseDetailComponent,
+    HrReviewApplicationComponent,
+    ApplicationDetailComponent,
+    ApplicationFilesComponent,
 
     ReportCommentComponent,
     AddCommentComponent,

@@ -35,7 +35,7 @@ visa: Visa = new Visa();
   }
 
   goBack(){
-    this.router.navigate(['/personal']);
+    this.router.navigate(['employee/personal']);
   }
 
   onSubmit(){
@@ -53,6 +53,6 @@ visa: Visa = new Visa();
     this.visa.endDate = this.endDate;
     this.employeeService.setVisa(this.visa);
     console.log(this.employeeService.getEmployee());
-    this.router.navigate(['/driver']);
+    this.router.navigate(['employee/driver']);
   }
 }

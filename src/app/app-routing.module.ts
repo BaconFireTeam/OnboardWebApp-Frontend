@@ -20,38 +20,11 @@ import { HrHouseComponent } from './hr-house/hr-house.component';
 import { HouseComponent } from './house/house.component';
 import { HrHouseDetailComponent } from './hr-house-detail/hr-house-detail.component';
 import { from } from 'rxjs';
-// <<<<<<< HEAD
 
+import { HrReviewApplicationComponent } from './hr-review/hr-review-application/hr-review-application.component';
+import { ApplicationDetailComponent } from './hr-review/application-detail/application-detail.component';
+import { ApplicationFilesComponent } from './hr-review/application-files/application-files.component';
 
-// const routes: Routes = [
-  
-//   { path: 'login', component: LoginComponent},
-//   { path: 'token', component: TokenLoginComponent},
-
-//   { path: 'employee', children: [
-//     { path: 'personal', component: OnboardingComponent},
-//     { path: 'home', component: HomeComponent},
-//     { path: 'personal', component: OnboardingComponent },
-//     { path: 'work-status', component: WorkStatusComponent },
-//     { path: 'driver', component: DrivingStatusComponent },
-//     { path: 'reference', component: ReferenceComponent },
-//     { path: 'emergency', component: EmergencyContactComponent },
-//     { path: 'documents', component: DocumentsComponent },
-//     { path: 'visa', component: EmpVisaComponent},
-//     { path: 'detailhouse', component: HouseComponent },
-//     { path: '**', redirectTo: 'home'}
-//   ]},
-
-//   { path: 'hr', children: [
-//     { path: 'visa', component: HrVisaComponent },
-//     { path: 'listhouse', component: HrHouseComponent },
-//     { path: 'detailhouse', component: HrHouseDetailComponent }
-//   ]},
-
-//   { path: 'setup', component: SetupComponent},
-//   { path: 'token-setup', component: TokenComponent },
-//   { path: '**', component: ErrorComponent}
-// =======
 import { ReportCommentComponent } from './report-comment/report-comment.component';
 import { AddCommentComponent } from './add-comment/add-comment.component';
 import { AddCommentHrComponent } from './add-comment-hr/add-comment-hr.component';
@@ -62,7 +35,31 @@ const routes: Routes = [
 
   { path: 'login', component: LoginComponent },
   { path: 'token', component: TokenLoginComponent },
-  { path: 'setup', component: SetupComponent },
+  
+  { path: 'employee', children: [
+    // { path: 'personal', component: OnboardingComponent},
+    { path: 'home', component: HomeComponent},
+    { path: 'personal', component: OnboardingComponent },
+    { path: 'work-status', component: WorkStatusComponent },
+    { path: 'driver', component: DrivingStatusComponent },
+    { path: 'reference', component: ReferenceComponent },
+    { path: 'emergency', component: EmergencyContactComponent },
+    { path: 'documents', component: DocumentsComponent },
+    { path: 'visa', component: EmpVisaComponent},
+    { path: 'detailhouse', component: HouseComponent },
+    { path: '**', redirectTo: 'home'}
+  ]},
+
+  { path: 'hr', children: [
+    { path: 'visa', component: HrVisaComponent },
+    { path: 'listhouse', component: HrHouseComponent },
+    { path: 'detailhouse', component: HrHouseDetailComponent },
+    { path: 'reviewapplication', component: HrReviewApplicationComponent },
+    { path: 'applicationdetail', component: ApplicationDetailComponent },
+    { path: 'filesdetail', component: ApplicationFilesComponent },
+  ]},
+
+  { path: 'setup', component: SetupComponent},
   { path: 'home', component: HomeComponent },
   { path: 'token-setup', component: TokenComponent },
   { path: 'personal', component: OnboardingComponent },

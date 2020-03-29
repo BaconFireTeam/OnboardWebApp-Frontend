@@ -1,4 +1,3 @@
-import { User, Role } from './User';
 import { DigitalDocuments } from './DocumentResponse'
 
 export class ServiceStatus {
@@ -13,9 +12,7 @@ export class ServiceStatus {
     }
 }
 
-export class Response {
+export class GetDocumentsListResponse {
     serviceStatus: ServiceStatus;
-    user: User;
-    role: Role;
-    employeeId: number;
+    digitalDocumentResponseList: Array<DigitalDocuments>;
 }

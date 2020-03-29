@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Contact, Address } from 'src/app/shared/domain/Employee';
+import { Contact, Address, Employee, Reference } from 'src/app/shared/domain/Employee';
 import { EmployeeService } from '../employee.service';
 
 @Component({
@@ -9,6 +9,7 @@ import { EmployeeService } from '../employee.service';
   styleUrls: ['./reference.component.css']
 })
 export class ReferenceComponent implements OnInit {
+  /*
   contact: Contact = new Contact();
   address: Address = new Address();
   firstName: string;
@@ -23,19 +24,24 @@ export class ReferenceComponent implements OnInit {
   stateAbbr: string;
   email: string;
   relationship: string;
+*/
 
+  email: string = "";
+  ref: Reference;
 
-  constructor(private route: ActivatedRoute, private router: Router, private employeeService: EmployeeService) { }
+  constructor(private router: Router, private employeeService: EmployeeService) { }
 
   ngOnInit(): void {
-    this.contact.address = [];
+    // this.contact.address = [];
+    this.ref = new Reference();
   }
 
   goBack() {
-    this.router.navigate(['/driver']);
+    this.router.navigate(['employee/driver']);
   }
 
   onSubmit() {
+    /*
     this.contact.firstname = this.firstName;
     this.contact.lastname = this.lastName;
     this.contact.middlename = this.middleName;
@@ -54,9 +60,14 @@ export class ReferenceComponent implements OnInit {
     this.contact.address.push(this.address);
 
     this.employeeService.addContact(this.contact);
+*/
 
-    console.log(this.employeeService.getEmployee());
-    this.router.navigate(['/emergency']);
+    // console.log(this.employeeService.getEmployee());
+    
+    this.ref.email = this.email;
+    this.employeeService.setReference(this.ref);
+    
+    this.router.navigate(['employee/emergency']);
   }
 
 }
