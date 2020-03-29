@@ -1,0 +1,84 @@
+<div class="page-wrapper">
+    <div class="container-fluid">
+        <div class="row page-titles">
+            <div class="col-md-12 ">
+                <h3 class="text-themecolor m-b-0 m-t-0">Application Detail</h3><br>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">{{parentPath}}</a></li>
+                    <li class="breadcrumb-item active">{{currentPath}}</li>
+                </ol>
+            </div>
+        </div> 
+
+        <div class="card">
+            <div class="card-block">
+                <h2 class="text-themecolor m-b-0 m-t-0">Form Application</h2>
+                <div class="card my-5">   
+                    <div class="comment">
+                        <h3 class="text-danger m-b-0 m-t-0">Comment from HR</h3>
+                        <textarea type="text" readonly id="formComment" value="{{formComment}}"></textarea>
+                    </div>     
+                    <form (submit)="onSubmit()" #empForm="ngForm">           
+                        <div class="card-body">
+                            <h3 class="text-themecolor m-b-0 m-t-0">Personal Information</h3><br>
+                            First Name: <input [readonly]="read" value="{{detail.firstname}}"><br>
+                            Middle Name: <input [readonly]="read" value="{{detail.middlename}}"><br>
+                            Last Name: <input [readonly]="read" value="{{detail.lastname}}"><br>
+                            Email: <input [readonly]="read" value="{{detail.email}}"><br>
+                            Cellphone: <input [readonly]="read" value="{{detail.cellphone}}"><br>
+                            Alternate Phone: <input [readonly]="read" value="{{detail.alternatephone}}"><br>
+                            Gender: <input [readonly]="read" value="{{detail.gender}}"><br>
+                            SSN: <input [readonly]="read" value="{{detail.ssn}}"><br>
+                            Date Of Birth: <input [readonly]="read" value="{{detail.dob}}">
+                        </div>
+
+                        <div class="card-body">
+                            <h3 class="text-themecolor m-b-0 m-t-0">Address</h3><br>
+                            Address Line1: <input [readonly]="read" value="{{detail.addressLine1}}"><br>
+                            Address Line2: <input [readonly]="read" value="{{detail.addressLine2}}"><br>
+                            City: <input [readonly]="read" value="{{detail.city}}"><br>
+                            ZipCode: <input [readonly]="read" value="{{detail.zipCode}}"><br>
+                            State: <input [readonly]="read" value="{{detail.stateName}}"><br>
+                            State Abbr: <input [readonly]="read" value="{{detail.stateAbbr}}">
+                        </div>
+
+                        <!-- Car -->
+                        <div class="card-body">
+                            <h3 class="text-themecolor m-b-0 m-t-0">Car & Driver License</h3><br>
+                            Car Info: <input [readonly]="read" value="{{detail.car}}"><br>
+                            Driver License Number: <input [readonly]="read" name="licenseNum" value="{{detail.licenseNum}}"><br>
+                            Driver License Expiration Date: <input [readonly]="read" name="expirationDate" value="{{detail.expirationDate}}">
+                        </div>
+
+                        <!-- Visa -->
+                        <div class="card-body">
+                            <h3 class="text-themecolor m-b-0 m-t-0">Visa</h3><br>
+                            Visa Type: <input [readonly]="read" value="{{detail.visaType}}" name="visaType"><br>
+                            Visa Start Date: <input [readonly]="read" value="{{detail.visaStartDate}}" name="visaStartDate"><br>
+                            Visa End Date: <input [readonly]="read" value="{{detail.visaEndDate}}" name="visaEndDate">
+                        </div>
+
+                        <!-- Contact -->
+                        <div class="card-body">
+                            <h3 class="text-themecolor m-b-0 m-t-0">Emergency Contact</h3><br>
+                            <div *ngFor="let contact of detail.emergencyContactList; let i = index">
+                                <h5>Emergency Contact({{i + 1}})</h5>
+                                First Name: <input [readonly]="read" value="{{contact.firstname}}"><br>
+                                Middle Name: <input [readonly]="read" value="{{contact.middlename}}"><br>
+                                Last Name: <input [readonly]="read" value="{{contact.lastname}}"><br>
+                                Email: <input [readonly]="read" value="{{contact.email}}"><br>
+                                Cellphone: <input [readonly]="read" value="{{contact.cellphone}}"><br>
+                                Alternate Phone: <input [readonly]="read" value="{{contact.alternatephone}}"><br>
+                                Gender: <input [readonly]="read" value="{{contact.gender}}"><br>
+                                Relationship: <input [readonly]="read" value="{{contact.relationship}}">
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-info">SAVE</button>
+                        <button type="button" class="btn btn-info" (click)="goNext()">NEXT</button>
+                    </form> 
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

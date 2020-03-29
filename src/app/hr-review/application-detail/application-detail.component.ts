@@ -19,6 +19,8 @@ export class ApplicationDetailComponent implements OnInit {
   formComment: string;
   fileComment: string;
 
+  read: boolean = true;
+  
   constructor(private router : Router,
     private route : ActivatedRoute,
     private revService: HrRevappService) { }

@@ -40,7 +40,9 @@ import { PersonDetailEmployeeComponent } from './person-detail-employee/person-d
 
 import { HrReviewApplicationComponent } from './hr-review/hr-review-application/hr-review-application.component';
 import { ApplicationDetailComponent } from './hr-review/application-detail/application-detail.component';
-import { ApplicationFilesComponent } from './hr-review/application-files/application-files.component'
+import { ApplicationFilesComponent } from './hr-review/application-files/application-files.component';
+import { ReviewFormComponent } from './emp-review/review-form/review-form.component';
+import { ReviewFileComponent } from './emp-review/review-file/review-file.component'
 
 
 
@@ -72,14 +74,16 @@ import { ApplicationFilesComponent } from './hr-review/application-files/applica
     HrReviewApplicationComponent,
     ApplicationDetailComponent,
     ApplicationFilesComponent,
-
     ReportCommentComponent,
     AddCommentComponent,
     AddReportComponent,
     AddCommentHrComponent,
     PersonDetailComponent,
     PersonDetailEmployeeComponent,
- ],
+    ReviewFormComponent,
+    ReviewFileComponent,
+  ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,
