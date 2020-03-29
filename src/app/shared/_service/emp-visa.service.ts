@@ -41,7 +41,7 @@ export class EmpVisaService {
   }
 
   startApplication(employeeId: number){
-    return this.http.post('http://localhost:4200/employee/application-open', {employeeId}).map((res: ApplicationResponse) => {
+    return this.http.post('http://localhost:4200/api/employee/application-open', {employeeId}).map((res: ApplicationResponse) => {
       return res;
     });
   }
@@ -51,13 +51,13 @@ export class EmpVisaService {
     file.append('file', visaFile[0], visaFile[0].name);
     file.append('employeeID', employeeID+"");
     file.append('type', type);
-    return this.http.post('http://localhost:4200/uploadFile', file).map((res: UploadFileResponse) => {
+    return this.http.post('http://localhost:4200/api/uploadFile', file).map((res: UploadFileResponse) => {
       return res;
     });
   }
 
   updateAppStatus(applicationId: number){
-    return this.http.post('http://localhost:4200/employee/application-submit', {applicationId}).map((res: ApplicationResponse) => {
+    return this.http.post('http://localhost:4200/api/employee/application-submit', {applicationId}).map((res: ApplicationResponse) => {
       return res;
     });
   }
