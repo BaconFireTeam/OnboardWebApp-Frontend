@@ -46,7 +46,11 @@ import { ReviewFormComponent } from './emp-review/review-form/review-form.compon
 import { ReviewFileComponent } from './emp-review/review-file/review-file.component'
 
 
-import { HrEmpComponent } from './hr-emp/hr-emp.component'
+import { HrEmpComponent } from './hr-emp/hr-emp.component';
+import { PersonalProfileComponent } from './profile/personal-profile/personal-profile.component';
+import { PersonalProfilePanelComponent } from './profile/personal-profile-panel/personal-profile-panel.component';
+import { NameComponent } from './profile/name/name.component';
+import { AddressComponent } from './profile/address/address.component'
 
 
 @NgModule({
@@ -88,6 +92,14 @@ import { HrEmpComponent } from './hr-emp/hr-emp.component'
     ReviewFileComponent,
 
     HrEmpComponent,
+
+    PersonalProfileComponent,
+
+    PersonalProfilePanelComponent,
+
+    NameComponent,
+
+    AddressComponent,
 
 
   ],
