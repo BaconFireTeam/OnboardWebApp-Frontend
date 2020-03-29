@@ -16,6 +16,8 @@ export class ReportCommentComponent implements OnInit {
 
   ngOnInit(): void {
 
+    
+
     this.houseService.getHrReportDetail(this.houseService.report.id).subscribe(data => {
       this.reportDetails = data.reportDetails;
       
