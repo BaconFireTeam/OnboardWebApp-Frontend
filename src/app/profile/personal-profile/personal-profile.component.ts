@@ -19,6 +19,10 @@ export class PersonalProfileComponent implements OnInit {
       
       this.service.setEmployee(data);
     })
+    this.hrRevServ.getDocumentList(52).subscribe(data => {
+      
+      this.service.setEmployee2(data);
+    })
   }
 
 }
