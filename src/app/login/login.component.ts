@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 // import { first } from 'rxjs/operators';
+import { HouseService } from '../shared/_service/house.service';
+
 
 // import { AlertService,
 import { AuthService } from '../shared/_service/auth.service';
@@ -22,6 +24,7 @@ export class LoginComponent implements OnInit {
         private route: ActivatedRoute,
         private router: Router,
         private authService: AuthService,
+        private houseService: HouseService,
         // private alertService: AlertService
     ) {
         // redirect to home if already logged in
@@ -56,6 +59,7 @@ export class LoginComponent implements OnInit {
           console.log(res);
         
             if (res) {
+                this.houseService.employeeID=res.id;
                 this.router.navigate(['/home']);
             } else {
                 this.loading = false;

@@ -22,7 +22,7 @@
                     <td>{{ house.address }}</td>
                     <td>{{ house.numberOfPerson }}</td>
                     <td>{{ house.maxPerson}}</td>
-                    <td><button type="button" class="btn btn-danger" ng-click="goRedirect()">Detail</button></td>
+                    <td><button type="button" class="btn btn-info" (click)="detail(house.id)">Detail</button></td>
                 </tr>
             </tbody>
         </table>

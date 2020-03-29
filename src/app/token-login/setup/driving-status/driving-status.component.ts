@@ -30,7 +30,7 @@ export class DrivingStatusComponent implements OnInit {
   }
 
   goBack() {
-    this.router.navigate(['/work-status']);
+    this.router.navigate(['employee/work-status']);
   }
 
   onSubmit() {
@@ -39,7 +39,7 @@ export class DrivingStatusComponent implements OnInit {
     this.driverLicense.expirationDate = this.expDate;
     this.employeeService.setDriveLicense(this.driverLicense);
     console.log(this.employeeService.getEmployee());
-    this.router.navigate(['/reference']);
+    this.router.navigate(['employee/reference']);
   }
 
 }

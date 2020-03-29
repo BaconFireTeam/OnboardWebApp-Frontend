@@ -10,6 +10,7 @@ export class ServiceStatus {
     }
 }
 
+
 export class HouseRequest {
     employeeID: number;
     constructor(employeeID: number) { this.employeeID = employeeID }
@@ -78,6 +79,7 @@ export class Employee {
     lastname: string;
     email: string;
     cellphone: string;
+    gender:string;
 }
 export class Facility {
     id: number;
