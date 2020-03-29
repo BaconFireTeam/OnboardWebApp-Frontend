@@ -77,7 +77,7 @@ const routes: Routes = [
   { path: 'add-report', component: AddReportComponent },
   { path: 'person-detail', component: PersonDetailComponent },
   { path: 'person-detail-employee', component: PersonDetailEmployeeComponent },
-  { path: 'employee/detailhouse', component: HouseComponent },
+  // { path: 'employee/detailhouse', component: HouseComponent },
   { path: '**', redirectTo: '/login' }
 
 ];
