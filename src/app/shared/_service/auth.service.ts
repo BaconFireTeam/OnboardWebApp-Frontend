@@ -33,7 +33,7 @@ export class AuthService {
   }
 
   login(username: string, password: string) {
-    return this.http.post('http://localhost:4200/login', {username, password}).map((res: Response) => {
+    return this.http.post('http://localhost:4200/api/login', {username, password}).map((res: Response) => {
       if(res.user){
       localStorage.setItem('currentUser', JSON.stringify(res.user));
       this.currentUserSubject.next(res.user);
@@ -47,7 +47,7 @@ export class AuthService {
   }
 
   checkToken(email: string, token: string) {
-    return this.http.post('http://localhost:4200/token', {email, token}).map((res: Response) => {
+    return this.http.post('http://localhost:4200/api/token', {email, token}).map((res: Response) => {
       console.log(res);
       return res.serviceStatus;
     });

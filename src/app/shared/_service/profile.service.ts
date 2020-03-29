@@ -11,7 +11,7 @@ export class ProfileService {
 
   getEmployees(){
     console.log("going to backend");
-    return this.http.get('http://localhost:4200/hr/empProfiles').map((res: EmployeeProfileResponse) => {
+    return this.http.get('http://localhost:4200/api/hr/empProfiles').map((res: EmployeeProfileResponse) => {
     console.log(res);  
     return res;
     });
@@ -20,7 +20,7 @@ export class ProfileService {
   searchEmployees(search: string){
     let param: FormData = new FormData();
     param.append('search', search);
-    return this.http.post('http://localhost:4200/hr/empProfiles', param).map((res: EmployeeProfileResponse) => {
+    return this.http.post('http://localhost:4200/api/hr/empProfiles', param).map((res: EmployeeProfileResponse) => {
     console.log(res);  
     return res;
     });

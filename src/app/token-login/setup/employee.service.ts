@@ -81,7 +81,7 @@ export class EmployeeService {
 
   submitForm(employee: Employee) {
     console.log(employee)
-    return this.http.post('http://localhost:4200/onboard-application', {employee}).map((res: Response) => {
+    return this.http.post('http://localhost:4200/api/onboard-application', {employee}).map((res: Response) => {
       console.log(res);
     
       return res;
@@ -97,7 +97,7 @@ export class EmployeeService {
   }
 
   getDocument() {
-    return this.http.get('http://localhost:4200/getDigitalDocument', {params: {type: "Onboarding"}})
+    return this.http.get('http://localhost:4200/api/getDigitalDocument', {params: {type: "Onboarding"}})
       .map((docRes: GetDocumentsListResponse) => {
         console.log(docRes)
         return docRes.digitalDocumentResponseList;  
@@ -112,7 +112,7 @@ export class EmployeeService {
     }
     files.append('employeeID', employeeID+"");
     files.append('type', type);
-    return this.http.post('http://localhost:4200/uploadMultipleFiles', files).map((docRes: GetDocumentsListResponse[]) => {
+    return this.http.post('http://localhost:4200/api/uploadMultipleFiles', files).map((docRes: GetDocumentsListResponse[]) => {
       return docRes;
     });
   }

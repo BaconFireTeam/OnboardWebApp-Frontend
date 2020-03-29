@@ -28,20 +28,20 @@ export class EmpVisaService {
 
     // return of(applicationResponse);
 
-    return this.http.post('http://localhost:4200/employee/application', {employeeId}).map((res: ApplicationResponse) => {
+    return this.http.post('http://localhost:4200/api/employee/application', {employeeId}).map((res: ApplicationResponse) => {
       return res;
     });
   }
 
   checkVisaStatus(employeeId: number){
     // return of(new VisaStatusResponse());
-    return this.http.post('http://localhost:4200/employee/visa-status', {employeeId}).map((res: VisaStatusResponse) => {
+    return this.http.post('http://localhost:4200/api/employee/visa-status', {employeeId}).map((res: VisaStatusResponse) => {
       return res;
     });
   }
 
   startApplication(employeeId: number){
-    return this.http.post('http://localhost:4200/employee/application-open', {employeeId}).map((res: ApplicationResponse) => {
+    return this.http.post('http://localhost:4200/api/employee/application-open', {employeeId}).map((res: ApplicationResponse) => {
       return res;
     });
   }
@@ -51,13 +51,13 @@ export class EmpVisaService {
     file.append('file', visaFile[0], visaFile[0].name);
     file.append('employeeID', employeeID+"");
     file.append('type', type);
-    return this.http.post('http://localhost:4200/uploadFile', file).map((res: UploadFileResponse) => {
+    return this.http.post('http://localhost:4200/api/uploadFile', file).map((res: UploadFileResponse) => {
       return res;
     });
   }
 
   updateAppStatus(applicationId: number){
-    return this.http.post('http://localhost:4200/employee/application-submit', {applicationId}).map((res: ApplicationResponse) => {
+    return this.http.post('http://localhost:4200/api/employee/application-submit', {applicationId}).map((res: ApplicationResponse) => {
       return res;
     });
   }
