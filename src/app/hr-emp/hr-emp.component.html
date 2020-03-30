@@ -19,6 +19,7 @@
             <div class="card-block">
                 <table class="table">
                     <thead>
+                        <td><b><u>NO.</u></b></td>
                         <td><b><u>First Name</u></b></td>
                         <td><b><u>Last Name</u></b></td>
                         <td><b><u>Middle Name</u></b></td>
@@ -26,7 +27,10 @@
                         <td><b><u>Start Date</u></b></td>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let employee of employeeList">
+                        <tr *ngFor="let employee of employeeList; let i = index">
+                            <td>
+                                <button (click)="getPersonalProfile(employee.id)">{{i + 1}}</button>
+                            </td>
                             <td>{{employee.firstname}}</td>
                             <td>{{employee.lastname}}</td>
                             <td>{{employee.middlename}}</td>

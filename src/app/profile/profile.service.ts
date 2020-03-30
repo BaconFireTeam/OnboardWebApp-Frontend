@@ -10,12 +10,20 @@ import { PersonalDocumentResponse,PersonalDocument } from '../shared/domain/Pers
 export class ProfileService {
   employee : ApplicationDetailResponse;
   employee2:PersonalDocument[];
-  
+  employeeID: number;
 
   constructor(private router: Router, private service: HrRevappService) { 
     
   }
 
+  setEmployeeID(id: number) {
+    this.employeeID = id;
+  }
+
+  getEmployeeId() {
+    return this.employeeID;
+  }
+  
   setEmployee(e: ApplicationDetailResponse) {
     this.employee = e;
   }

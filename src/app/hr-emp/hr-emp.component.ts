@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { ProfileService } from '../shared/_service/profile.service';
+import { AllEmployeeProfileService } from '../shared/_service/profile.service';
+import { ProfileService } from '../profile/profile.service'
 import { Employee } from '../shared/domain/Employee';
 
 @Component({
@@ -18,8 +19,9 @@ export class HrEmpComponent implements OnInit {
   search: string = '';
   empty: string;
 
-  constructor(private profileService: ProfileService, private router: Router,
-    private route: ActivatedRoute) { }
+  constructor(private profileService: AllEmployeeProfileService, private router: Router,
+    private route: ActivatedRoute,
+    private personalProfileService: ProfileService) { }
 
   ngOnInit(): void {
     this.route.parent.url.subscribe(url => this.parentPath = url[0].path);
@@ -52,5 +54,11 @@ export class HrEmpComponent implements OnInit {
     this.employeeList = this.fullList;
     this.length = this.max;
     this.empty = "";
+  }
+
+  getPersonalProfile(id: number) {
+    console.log(id);
+    this.personalProfileService.setEmployeeID(id);
+    this.router.navigate(['person-detail-employee']);
   }
 }
