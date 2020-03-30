@@ -82,7 +82,7 @@ const routes: Routes = [
   { path: 'add-comment', component: AddCommentComponent },
   { path: 'add-comment-hr', component: AddCommentHrComponent },
   { path: 'add-report', component: AddReportComponent },
-  { path: 'person-detail', component: PersonDetailComponent },
+  { path: 'person-detail', component: PersonalProfileComponent },
   { path: 'person-detail-employee', component: PersonalProfileComponent },
   // { path: 'employee/detailhouse', component: HouseComponent },
   { path: '**', redirectTo: '/login' }
