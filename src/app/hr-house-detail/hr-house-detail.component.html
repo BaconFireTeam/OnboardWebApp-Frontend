@@ -1,73 +1,117 @@
-<app-navbar></app-navbar>
-<br>
-<br>
-<h2>houses detail</h2>
+<div class="page-wrapper">
+    <div class="container-fluid">
+        <div class="row page-titles">
+            <div class="col-md-12 ">
+                <h3 class="text-themecolor m-b-0 m-t-0">houses detail</h3><br>
+                <!-- <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">{{parentPath}}</a></li>
+                    <li class="breadcrumb-item active">{{currentPath}}</li>
+                </ol> -->
+            </div>
+        </div>
+       
+        <h2></h2>
 
 
-<div class="card my-5">
-    HouseAddress:{{house.address}}<br>
-    numberOfPerson:{{house.numberOfPerson}}<br>
-    MaxPerson:{{house.maxPerson}}<br>
-    Landlord Name:{{contact.firstname}} {{contact.lastname}}<br>
-    Landlord email:{{contact.email}}<br>
-    Landlord cellphone:{{contact.cellphone}}
-    <div class="card-body">
-        Roommates:
-        <table class="table table-bordered table-striped">
-            <thead class="thead-dark">
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Firstname</th>
-                    <th scope="col">Lastname</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Cellphone</th>
+        <div class="card my-5">
+            HouseAddress:{{house.address}}<br>
+            numberOfPerson:{{house.numberOfPerson}}<br>
+            MaxPerson:{{house.maxPerson}}<br>
+            Landlord Name:{{contact.firstname}} {{contact.lastname}}<br>
+            Landlord email:{{contact.email}}<br>
+            Landlord cellphone:{{contact.cellphone}}
+            <div class="card-body">
+                Roommates:
+                <table mdbTable>
+                    <thead class="thead-dark">
+                        <tr class="header">
+                            <th scope="col">#</th>
+                            <th scope="col">Firstname</th>
+                            <th scope="col">Lastname</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Cellphone</th>
 
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let l of list">
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr mdbTableCol *ngFor="let l of list">
 
-                    <td>{{ l.id }}</td>
-                    <td>{{l.firstname}}</td>
-                    <td>{{l.lastname}}</td>
-                    <td>{{l.email}}</td>
-                    <td>{{l.cellphone}}</td>
+                            <td><button type="button" class="btn btn-outline-dark"
+                                    (click)="personPage(l.id)">{{ l.id }}</button></td>
+                            <td>{{l.firstname}}</td>
+                            <td>{{l.lastname}}</td>
+                            <td>{{l.email}}</td>
+                            <td>{{l.cellphone}}</td>
 
-                </tr>
-            </tbody>
-        </table>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+            <div class="card-body">
+                Facilities:
+                <table mdbTable>
+                    <thead class="thead-dark">
+                        <tr class="header">
+                            <th scope="col">#</th>
+                            <th scope="col">Type</th>
+                            <th scope="col">description</th>
+                            <th scope="col">quantity</th>
+
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr mdbTableCol *ngFor="let f of facilities">
+                            <td>{{f.id}}</td>
+                            <td>{{ f.type }}</td>
+                            <td>{{f.description}}</td>
+                            <td>{{f.quantity}}</td>
+
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+            <div class="card-body">
+                Reports:
+                <table mdbTable>
+                    <thead class="thead-dark">
+                        <tr class="header">
+                            <th scope="col">#</th>
+                            <th scope="col">EmployeeID</th>
+                            <th scope="col">ReportDate</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">See Comments</th>
+
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr mdbTableCol *ngFor="let r of reports">
+                            <td>{{r.id}}</td>
+                            <td>{{ r.employeeID }}</td>
+                            <td>{{r.reportDate}}</td>
+                            <td>{{r.description}}</td>
+                            <td><button type="button" class="btn btn-outline-dark"
+                                    (click)="changeStatus(r)">{{r.status}}</button></td>
+                            <td><button [disabled]="r.status==='Closed'" type="button" class="btn btn-primary"
+                                    (click)="comment(r)">Comment</button></td>
+
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+
+        </div>
     </div>
-
-
-    <div class="card-body">
-        Facilities:
-        <table class="table table-bordered table-striped">
-            <thead class="thead-dark">
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Type</th>
-                    <th scope="col">description</th>
-                    <th scope="col">quantity</th>
-                    
-
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let f of facilities">
-                    <td>{{f.id}}</td>
-                    <td>{{ f.type }}</td>
-                    <td>{{f.description}}</td>
-                    <td>{{f.quantity}}</td>
-                    
-
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
-
-
-
 
 
 </div>

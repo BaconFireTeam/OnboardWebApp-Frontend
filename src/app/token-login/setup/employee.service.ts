@@ -1,17 +1,22 @@
 import { Injectable } from '@angular/core';
-import { Employee, Address, Contact, Visa, DriverLicense } from 'src/app/shared/domain/Employee';
+import { Employee, Address, Contact, Visa, DriverLicense, Reference } from 'src/app/shared/domain/Employee';
+import { HttpClient } from '@angular/common/http';
+import { GetDocumentsListResponse } from 'src/app/shared/domain/GetDocumentsListResponse.model';
+import { Response } from 'src/app/shared/domain/Response.model'
 
 @Injectable({
   providedIn: 'root'
 })
 export class EmployeeService {
   employee: Employee = new Employee();
+  employeeID: number;
 
-  constructor() {
+  constructor(private http: HttpClient) {
     this.employee.addressList = [];
-    this.employee.contacts = [];
+    this.employee.emergencyContactList = [];
     this.employee.visa = new Visa();
     this.employee.driverLicense = new DriverLicense();
+    this.employee.reference = new Reference();
    }
   
   setFirstName(firstName: string) {
@@ -54,6 +59,10 @@ export class EmployeeService {
     this.employee.visa = visa;
   }
 
+  setReference(reference: Reference) {
+    this.employee.reference = reference;
+  }
+
   setDriveLicense(driverLicense: DriverLicense) {
     this.employee.driverLicense = driverLicense;
   }
@@ -63,10 +72,48 @@ export class EmployeeService {
   }
 
   addContact(contact: Contact) {
-    this.employee.contacts.push(contact);
+    this.employee.emergencyContactList.push(contact);
   }
 
   getEmployee(){
     return this.employee;
+  }
+
+  submitForm(employee: Employee) {
+    console.log(employee)
+    return this.http.post('http://localhost:4200/api/onboard-application', {employee}).map((res: Response) => {
+      console.log(res);
+    
+      return res;
+    });
+  }
+
+  setEmployeeId(id: number) {
+    this.employeeID = id;
+  }
+
+  getEmployeeId(): number {
+    return this.employeeID;
+  }
+
+  getDocument() {
+    return this.http.get('http://localhost:4200/api/getDigitalDocument', {params: {type: "Onboarding"}})
+      .map((docRes: GetDocumentsListResponse) => {
+        console.log(docRes)
+        return docRes.digitalDocumentResponseList;  
+      });
+  }
+  
+
+  submitApplication(uploadFiles: string[], employeeID: number, type: string){
+    let files: FormData = new FormData();
+    for (let i = 0; i < uploadFiles.length; i++) {
+      files.append('files', uploadFiles[i]);
+    }
+    files.append('employeeID', employeeID+"");
+    files.append('type', type);
+    return this.http.post('http://localhost:4200/api/uploadMultipleFiles', files).map((docRes: GetDocumentsListResponse[]) => {
+      return docRes;
+    });
   }
 }

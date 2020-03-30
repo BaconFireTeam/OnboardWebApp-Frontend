@@ -5,6 +5,7 @@ import 'rxjs/add/operator/map';
 import { Response } from '../domain/Response.model';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { User, Role } from '../domain/User';
+import { HouseService } from './house.service';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,7 @@ export class AuthService {
   private currentUserRoleSubject: BehaviorSubject<Role>;
   public currentUserRole: Observable<Role>
 
-  constructor(private http : HttpClient) {
+  constructor(private http : HttpClient,private houseService: HouseService) {
     this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
     this.currentUser = this.currentUserSubject.asObservable();
     this.currentUserRoleSubject = new BehaviorSubject<Role>(JSON.parse(localStorage.getItem('currentUserRole')));
@@ -32,7 +33,7 @@ export class AuthService {
   }
 
   login(username: string, password: string) {
-    return this.http.post('http://localhost:4200/login', {username, password}).map((res: Response) => {
+    return this.http.post('http://localhost:4200/api/login', {username, password}).map((res: Response) => {
       if(res.user){
       localStorage.setItem('currentUser', JSON.stringify(res.user));
       this.currentUserSubject.next(res.user);
@@ -40,12 +41,13 @@ export class AuthService {
       this.currentUserRoleSubject.next(res.role);
       }
       console.log(res);
+      this.houseService.employeeID=res.user.id;
       return res.user;
     });
   }
 
   checkToken(email: string, token: string) {
-    return this.http.post('http://localhost:4200/token', {email, token}).map((res: Response) => {
+    return this.http.post('http://localhost:4200/api/token', {email, token}).map((res: Response) => {
       console.log(res);
       return res.serviceStatus;
     });

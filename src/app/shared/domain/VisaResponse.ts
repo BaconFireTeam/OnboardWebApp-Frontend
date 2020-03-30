@@ -14,3 +14,8 @@ export class ApplicationResponse {
     openOrPending: boolean;
     applicationList: Array<ApplicationResponse>;
 }
+
+export class EmployeeProfileResponse {
+    employeeList: Array<Employee>;
+    length: number;
+}

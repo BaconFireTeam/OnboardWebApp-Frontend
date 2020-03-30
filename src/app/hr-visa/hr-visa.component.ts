@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { HrVisaService } from '../shared/_service/hr-visa.service';
 import { VisaStatusResponse, ApplicationResponse } from '../shared/domain/VisaResponse';
 import { UploadFileResponse } from '../shared/_service/FileResponse';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Employee } from '../shared/domain/Employee';
+import { EmployeeService } from '../token-login/setup/employee.service';
 
 @Component({
   selector: 'app-hr-visa',
@@ -12,8 +15,15 @@ export class HrVisaComponent implements OnInit {
   responses: Array<VisaStatusResponse>;
   applications: Array<ApplicationResponse>;
   uploads:Array<UploadFileResponse>;
+  newExpDate: string = '';
+  error: string;
+  parentPath: string;
+  currentPath: string;
+  clickedEmp: Employee = new Employee();
+  noDoc: string;
 
-  constructor(private hrVisaService: HrVisaService) { }
+  constructor(private hrVisaService: HrVisaService, private router: Router,
+    private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.hrVisaService.checkVisas().subscribe(
@@ -30,13 +40,28 @@ export class HrVisaComponent implements OnInit {
       });
   }
 
-  approveApplication(applicationId:number) {
-    console.log(applicationId);
-    this.hrVisaService.updateApplication(applicationId, 'closed').subscribe(
+  pickEmployee(picked: Employee) {
+    this.clickedEmp = picked;
+  }
+
+  approveApplication(applicationId:number, employeeId: number, newExpDate: string) {
+    if(this.newExpDate == ''){
+      this.error = "New Expiration Date is required";
+    }
+    else{
+      console.log(newExpDate);
+      this.hrVisaService.updateVisaStatus(employeeId, newExpDate).subscribe(
+        (visaRes) => {
+          this.responses = visaRes;
+      });
+      console.log("would update applciation");
+      console.log(applicationId);
+      this.hrVisaService.updateApplication(applicationId, 'closed').subscribe(
       (appRes) => {
         this.applications = appRes;
         console.log(this.applications);
       });
+    }
   }
 
   getDocs(id: number, type: string){
@@ -46,7 +71,11 @@ export class HrVisaComponent implements OnInit {
       (appRes) => {
         this.uploads = appRes;
         console.log(this.uploads);
+        if(this.uploads.length == 0){
+          this.noDoc = "No Documents Uploaded Yet"
+        } else {
+          this.noDoc = null;
+        }
       });
-
   }
 }

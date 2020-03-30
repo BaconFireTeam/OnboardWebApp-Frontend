@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { FormsModule } from '@angular/forms'
+import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -29,7 +29,32 @@ import { GetDocumentsComponent } from './hr-visa/get-documents/get-documents.com
 
 import { HouseComponent } from './house/house.component';
 import { HrHouseComponent } from './hr-house/hr-house.component';
-import { HrHouseDetailComponent } from './hr-house-detail/hr-house-detail.component'
+import { HrHouseDetailComponent } from './hr-house-detail/hr-house-detail.component';
+
+
+import { ReportCommentComponent } from './report-comment/report-comment.component';
+import { AddCommentComponent } from './add-comment/add-comment.component';
+import { AddReportComponent } from './add-report/add-report.component';
+import { AddCommentHrComponent } from './add-comment-hr/add-comment-hr.component';
+import { PersonDetailComponent } from './person-detail/person-detail.component';
+import { PersonDetailEmployeeComponent } from './person-detail-employee/person-detail-employee.component'
+
+import { HrReviewApplicationComponent } from './hr-review/hr-review-application/hr-review-application.component';
+import { ApplicationDetailComponent } from './hr-review/application-detail/application-detail.component';
+import { ApplicationFilesComponent } from './hr-review/application-files/application-files.component';
+import { ReviewFormComponent } from './emp-review/review-form/review-form.component';
+import { ReviewFileComponent } from './emp-review/review-file/review-file.component'
+
+
+import { HrEmpComponent } from './hr-emp/hr-emp.component';
+import { PersonalProfileComponent } from './profile/personal-profile/personal-profile.component';
+import { PersonalProfilePanelComponent } from './profile/personal-profile-panel/personal-profile-panel.component';
+import { NameComponent } from './profile/name/name.component';
+import { AddressComponent } from './profile/address/address.component';
+import { PersonalContactComponent } from './profile/personal-contact/personal-contact.component';
+import { EmploymentComponent } from './profile/employment/employment.component';
+import { EmergencyComponent } from './profile/emergency/emergency.component';
+import { DocumentComponent } from './profile/document/document.component'
 
 
 @NgModule({
@@ -58,7 +83,39 @@ import { HrHouseDetailComponent } from './hr-house-detail/hr-house-detail.compon
     HrHouseComponent,
     HrHouseDetailComponent,
 
+    HrReviewApplicationComponent,
+    ApplicationDetailComponent,
+    ApplicationFilesComponent,
+    ReportCommentComponent,
+    AddCommentComponent,
+    AddReportComponent,
+    AddCommentHrComponent,
+    PersonDetailComponent,
+    PersonDetailEmployeeComponent,
+    ReviewFormComponent,
+    ReviewFileComponent,
+
+    HrEmpComponent,
+
+    PersonalProfileComponent,
+
+    PersonalProfilePanelComponent,
+
+    NameComponent,
+
+    AddressComponent,
+
+    PersonalContactComponent,
+
+    EmploymentComponent,
+
+    EmergencyComponent,
+
+    DocumentComponent,
+
+
   ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,
