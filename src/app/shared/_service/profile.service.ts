@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class ProfileService {
+export class AllEmployeeProfileService {
 
   constructor(private http : HttpClient) { }
 
