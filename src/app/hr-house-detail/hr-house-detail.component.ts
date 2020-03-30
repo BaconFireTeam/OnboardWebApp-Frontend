@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { House, Contact, Employee, Facility, FacilityReport, FacilityReportDetail } from '../shared/domain/hr-house.model';
 import { HouseService } from '../shared/_service/house.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ProfileService } from '../profile/profile.service';
 
 @Component({
   selector: 'app-hr-house-detail',
@@ -21,7 +22,8 @@ export class HrHouseDetailComponent implements OnInit {
   houseID: number;
 
 
-  constructor(private router: Router, private houseService: HouseService) { }
+  constructor(private router: Router, private houseService: HouseService,
+    private personalProfileService: ProfileService) { }
 
   ngOnInit() {
     this.houseService.getHrHouseDetail(this.houseService.houseID).subscribe(data => {
@@ -55,9 +57,9 @@ export class HrHouseDetailComponent implements OnInit {
     this.router.navigate(['/report-detail']);
   }
 
-  personPage( employee:Employee){
-    this.houseService.employee = employee;
-    this.router.navigate(['/person-detail']);
+  personPage(id: number){
+    this.personalProfileService.setEmployeeID(id);
+    this.router.navigate(['person-detail-employee']);
   }
 
 }
