@@ -38,7 +38,7 @@
                         <tr mdbTableCol *ngFor="let l of list">
 
                             <td><button type="button" class="btn btn-outline-dark"
-                                    (click)="personPage(l)">{{ l.id }}</button></td>
+                                    (click)="personPage(l.id)">{{ l.id }}</button></td>
                             <td>{{l.firstname}}</td>
                             <td>{{l.lastname}}</td>
                             <td>{{l.email}}</td>
