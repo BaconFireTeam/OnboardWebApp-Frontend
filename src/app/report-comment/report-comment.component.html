@@ -1,51 +1,50 @@
-
-<app-navbar></app-navbar>
-<br>
-<br>
-<h2>houses detail</h2>
-
-
-<div class="card my-5">
-    
-   
-    <div class="card-body">
-        Comments:
-        <table class="table table-bordered table-striped">
-            <thead class="thead-dark">
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">EmployeeID</th>
-                    <th scope="col">Comments</th>
-                    <th scope="col">Created Date</th>
-                    <th scope="col">Last Modify Date</th>
-
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let l of reportDetails">
-
-                    <td>{{ l.id }}</td>
-                    <td>{{l.employeeID}}</td>
-                    <td>{{l.comments}}</td>
-                    <td>{{l.createdDate}}</td>
-                    <td>{{l.lastModificationDate}}</td>
-
-                </tr>
-            </tbody>
-        </table>
-        <button type="button" class="btn btn-info" (click)="addComment()">Add Comment</button>
+<div class="page-wrapper">
+    <div class="container-fluid">
+        <div class="row page-titles">
+            <div class="col-md-12 ">
+                <h3 class="text-themecolor m-b-0 m-t-0">Employee House Detail</h3><br>
+                <!-- <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">{{parentPath}}</a></li>
+                    <li class="breadcrumb-item active">{{currentPath}}</li>
+                </ol> -->
+            </div>
+        </div>
+        
+        <h2>houses detail</h2>
+        
+        <div class="card my-5">
 
 
+            <div class="card-body">
+                Comments:
+                <table class="table table-bordered table-striped">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">EmployeeID</th>
+                            <th scope="col">Comments</th>
+                            <th scope="col">Created Date</th>
+                            <th scope="col">Last Modify Date</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let l of reportDetails">
+
+                            <td>{{ l.id }}</td>
+                            <td>{{l.employeeID}}</td>
+                            <td>{{l.comments}}</td>
+                            <td>{{l.createdDate}}</td>
+                            <td>{{l.lastModificationDate}}</td>
+
+                        </tr>
+                    </tbody>
+                </table>
+                <button type="button" class="btn btn-info" (click)="addComment()">Add Comment</button>
+
+
+            </div>
+        </div>
     </div>
-   
-   
-
-
-
-
-
 </div>
-
-
-
 

@@ -1,18 +1,33 @@
-
-<h2>New Comment</h2>           
-<div class="card my-5">
-    <div class="card-body">
-        
-        <form (ngSubmit)="onSubmit()" #repForm="ngForm">
-
-            <div class="form-group ">
-                <label for="Comment">Comment:</label>
-                <input type="text" [(ngModel)]="comment" class="form-control" id="comment" name="comment" placeholder="Comment" required #ref="ngModel">
-                <div [hidden]="ref.valid||ref.pristine " class="alert alert-danger ">Comment is required</div>
+<div class="page-wrapper">
+    <div class="container-fluid">
+        <div class="row page-titles">
+            <div class="col-md-12 ">
+                <h3 class="text-themecolor m-b-0 m-t-0">New Comment</h3><br>
+                <!-- <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">{{parentPath}}</a></li>
+                    <li class="breadcrumb-item active">{{currentPath}}</li>
+                </ol> -->
             </div>
-            <button type="button" class="btn btn-info" (click)="goBack()">Back</button> 
-&nbsp;
-            <button type="submit " [disabled]="!repForm.form.valid " class="btn btn-info ">Confirm</button>
-        </form>
+        </div>
+        <br>
+        <br>
+        <h2></h2>
+        <div class="card my-5">
+            <div class="card-body">
+
+                <form (ngSubmit)="onSubmit()" #repForm="ngForm">
+
+                    <div class="form-group ">
+                        <label for="Comment">Comment:</label>
+                        <input type="text" [(ngModel)]="comment" class="form-control" id="comment" name="comment"
+                            placeholder="Comment" required #ref="ngModel">
+                        <div [hidden]="ref.valid||ref.pristine " class="alert alert-danger ">Comment is required</div>
+                    </div>
+                    <button type="button" class="btn btn-info" (click)="goBack()">Back</button>
+                    &nbsp;
+                    <button type="submit " [disabled]="!repForm.form.valid " class="btn btn-info ">Confirm</button>
+                </form>
+            </div>
+        </div>
     </div>
 </div>
