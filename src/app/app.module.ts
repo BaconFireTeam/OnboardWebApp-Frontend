@@ -55,6 +55,7 @@ import { PersonalContactComponent } from './profile/personal-contact/personal-co
 import { EmploymentComponent } from './profile/employment/employment.component';
 import { EmergencyComponent } from './profile/emergency/emergency.component';
 import { DocumentComponent } from './profile/document/document.component'
+import { HttpInterceptorService } from './shared/_service/http-interceptor.service';
 
 
 @NgModule({
@@ -123,7 +124,7 @@ import { DocumentComponent } from './profile/document/document.component'
     HttpClientModule,
     FormsModule,
   ],
-  providers: [],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
