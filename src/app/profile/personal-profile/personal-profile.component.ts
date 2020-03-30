@@ -10,14 +10,20 @@ import { ApplicationDetailResponse } from 'src/app/shared/domain/ApplicationDeta
 })
 export class PersonalProfileComponent implements OnInit {
   employee : ApplicationDetailResponse;
-  
+  id: number;
+
   constructor(private hrRevServ: HrRevappService,
     private service: ProfileService) { }
 
   ngOnInit(): void {
-    this.hrRevServ.getApplicationDetail(52).subscribe(data => {
+    this.id = this.service.getEmployeeId();
+    this.hrRevServ.getApplicationDetail(this.id).subscribe(data => {
       
       this.service.setEmployee(data);
+    })
+    this.hrRevServ.getDocumentList(52).subscribe(data => {
+      
+      this.service.setEmployee2(data);
     })
   }
 

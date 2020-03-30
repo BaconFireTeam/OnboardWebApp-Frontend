@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../_service/auth.service';
 
 @Component({
   selector: 'app-left-nav',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LeftNavComponent implements OnInit {
 
-  constructor() { }
+  currentUserRole:string;
+
+  constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
+    this.authService.currentUserRoleSubject.subscribe((role) => {
+      this.currentUserRole = role;
+    });
   }
 
 }

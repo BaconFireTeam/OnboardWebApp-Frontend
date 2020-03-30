@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { FormsModule } from '@angular/forms'
+import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -52,7 +52,10 @@ import { PersonalProfilePanelComponent } from './profile/personal-profile-panel/
 import { NameComponent } from './profile/name/name.component';
 import { AddressComponent } from './profile/address/address.component';
 import { PersonalContactComponent } from './profile/personal-contact/personal-contact.component';
-import { EmploymentComponent } from './profile/employment/employment.component'
+import { EmploymentComponent } from './profile/employment/employment.component';
+import { EmergencyComponent } from './profile/emergency/emergency.component';
+import { DocumentComponent } from './profile/document/document.component'
+import { HttpInterceptorService } from './shared/_service/http-interceptor.service';
 
 
 @NgModule({
@@ -107,6 +110,10 @@ import { EmploymentComponent } from './profile/employment/employment.component'
 
     EmploymentComponent,
 
+    EmergencyComponent,
+
+    DocumentComponent,
+
 
   ],
 
@@ -117,7 +124,7 @@ import { EmploymentComponent } from './profile/employment/employment.component'
     HttpClientModule,
     FormsModule,
   ],
-  providers: [],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

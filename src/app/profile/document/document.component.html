@@ -1,0 +1,28 @@
+<h2>Document List</h2>
+
+        <table >
+            <thead>
+                <tr class="header">
+
+                    <th scope="col">Type</th>
+                    <th scope="col">file Name</th>
+                    <th scope="col">DownloadURL</th>
+                    
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let l of employee">
+
+
+                   
+                    <td>{{l.type}}</td>
+                    <td>{{l.fileName}}</td>
+                    <td>
+                        <a href="{{l.fileDownloadUri}}" target="_blank">view</a>
+                    </td>
+
+                </tr>
+            </tbody>
+        </table>
+   

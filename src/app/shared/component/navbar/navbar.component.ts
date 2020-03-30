@@ -13,7 +13,7 @@ export class NavbarComponent implements OnInit {
   constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
-    this.currentUserRole = this.authService.currentUserRoleValue;
+    //this.currentUserRole = this.authService.currentUserRoleValue;
   }
 
   logout() {
