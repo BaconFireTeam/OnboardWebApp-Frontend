@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { House, Contact, Employee, Facility, FacilityReport, FacilityReportDetail } from '../shared/domain/hr-house.model';
 import { HouseService } from '../shared/_service/house.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ProfileService } from '../profile/profile.service';
 
 @Component({
   selector: 'app-house',
@@ -21,7 +22,7 @@ export class HouseComponent implements OnInit {
   reportDetails: Array<FacilityReportDetail>;
   reportID: number;
 
-  constructor(private houseService: HouseService, private router: Router,private route: ActivatedRoute) { }
+  constructor(private houseService: HouseService, private router: Router,private route: ActivatedRoute,private personalProfileService: ProfileService) { }
 
   ngOnInit(){
 
@@ -54,8 +55,8 @@ export class HouseComponent implements OnInit {
     this.router.navigate(['/add-report']);
   }
 
-  personPage( employee:Employee){
-    this.houseService.employee = employee;
-    this.router.navigate(['/person-detail-employee']);
+  personPage(id: number){
+    this.personalProfileService.setEmployeeID(id);
+    this.router.navigate(['person-detail-employee']);
   }
 }
