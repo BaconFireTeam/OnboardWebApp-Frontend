@@ -19,7 +19,12 @@ export class HttpInterceptorService implements HttpInterceptor {
         if (resp instanceof HttpResponse) {
           console.log(resp.status);
           let roles = resp.headers.get("Roles");
-
+          // test for id
+          let id = resp.headers.get("id");
+          if(id) {
+            this.auth.setCurrentId(id);
+          }
+          // 
           if (roles)
             this.auth.setCurrentRole(roles);
           return  resp;

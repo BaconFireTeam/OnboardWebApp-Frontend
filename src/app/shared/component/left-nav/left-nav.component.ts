@@ -9,12 +9,16 @@ import { AuthService } from '../../_service/auth.service';
 export class LeftNavComponent implements OnInit {
 
   currentUserRole:string;
+  currentUserId:number;
 
   constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
     this.authService.currentUserRoleSubject.subscribe((role) => {
       this.currentUserRole = role;
+    });
+    this.authService.currentUserIdSubject.subscribe((id) => {
+      this.currentUserId = id;
     });
   }
 

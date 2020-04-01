@@ -3,23 +3,17 @@
     <div class="scroll-sidebar">
         <!-- Sidebar navigation-->
         <nav class="sidebar-nav">
+            {{currentUserRole}} | {{currentUserId}}
             <ul id="sidebarnav">
                 <div *ngIf="currentUserRole == 'Employee'">
                     <!-- Kiki: Onboarding and HR Review Application -->
-                    <li>
+                    <!-- <li>
                         <a routerLink="/employee/reviewform" routerLinkActive="active" class="waves-effect"><i class="fa fa-table m-r-10" aria-hidden="true"></i>Onboarding Application</a>
                     </li>
                     <li>
                         <a routerLink="/token" routerLinkActive="active" class="waves-effect"><i class="fa fa-table m-r-10" aria-hidden="true"></i>Token Login</a>
-                    </li>
-                    <li>
-                        <a routerLink="/hr/reviewapplication" routerLinkActive="active" class="waves-effect"><i class="fa fa-table m-r-10" aria-hidden="true"></i>Hire</a>
-                    </li>
+                    </li> -->
                     <!-- End Here -->
-                    
-                    <li>
-                        <a routerLink="/home" routerLinkActive="active" class="waves-effect"><i class="fa fa-clock-o m-r-10" aria-hidden="true"></i>Logout</a>
-                    </li>
 
                     <!--will seperate by role id later-->
                     <li>
@@ -32,7 +26,7 @@
                         <a routerLink="/employee/visa" routerLinkActive="active" class="waves-effect"><i class="fa fa-table m-r-10" aria-hidden="true"></i>Visa Management</a>
                     </li>
                     <li>
-                        <a href="/employee/detailhouse" class="waves-effect"><i class="fa fa-font m-r-10" aria-hidden="true"></i>Housing</a>
+                        <a routerLink="/employee/detailhouse" routerLinkActive="active" class="waves-effect"><i class="fa fa-font m-r-10" aria-hidden="true"></i>Housing</a>
                     </li>
                 </div>
                 <div *ngIf="currentUserRole == 'HR'">
@@ -47,10 +41,10 @@
                         <a routerLink="/hr/visa" routerLinkActive="active" class="waves-effect"><i class="fa fa-table m-r-10" aria-hidden="true"></i>Visa Management</a>
                     </li>
                     <li>
-                        <a href="#" class="waves-effect"><i class="fa fa-font m-r-10" aria-hidden="true"></i>Hire</a>
+                        <a routerLink="/hr/reviewapplication" routerLinkActive="active" class="waves-effect"><i class="fa fa-table m-r-10" aria-hidden="true"></i>Hire</a>
                     </li>
                     <li>
-                        <a href="/hr/listhouse" class="waves-effect"><i class="fa fa-font m-r-10" aria-hidden="true"></i>Housing</a>
+                        <a routerLink="/hr/listhouse" routerLinkActive="active" class="waves-effect"><i class="fa fa-font m-r-10" aria-hidden="true"></i>Housing</a>
                     </li>
                 </div>
             </ul>

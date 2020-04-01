@@ -60,28 +60,28 @@ export class TokenLoginComponent implements OnInit {
       console.log(this.f.token.value)
 
       this.loading = true;
-      if(this.f.email.value == this.testEmail && this.f.token.value == this.testToken) {
-        this.registerService.setEmail(this.f.email.value);
-        this.router.navigate(['/setup']);
-      } else {
-        this.loading = false;
-        console.log("invalid");
-      }
+      // if(this.f.email.value == this.testEmail && this.f.token.value == this.testToken) {
+      //   this.registerService.setEmail(this.f.email.value);
+      //   this.router.navigate(['/setup']);
+      // } else {
+      //   this.loading = false;
+      //   console.log("invalid");
+      // }
 // comment for front end test
 //////////////////////////////////////////////////////////////////////////      
-    //   this.authService.checkToken(this.f.email.value, this.f.token.value).subscribe(
-    //     (res) => {
-    //       console.log(res);
+      this.authService.checkToken(this.f.email.value, this.f.token.value).subscribe(
+        (res) => {
+          console.log(res);
         
-    //         if (res.success) {
-    //             this.registerService.setEmail(this.f.email.value);
-    //             this.router.navigate(['/setup']);
-    //         } else {
-    //             this.loading = false;
-    //             console.log("invalid");
-    //         }
-    //     }
-    //   );
+            if (res.success) {
+                this.registerService.setEmail(this.f.email.value);
+                this.router.navigate(['/setup']);
+            } else {
+                this.loading = false;
+                console.log("invalid");
+            }
+        }
+      );
   }
 
 }

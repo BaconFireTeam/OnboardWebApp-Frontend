@@ -14,10 +14,13 @@ export class AuthService {
   public currentUserSubject: BehaviorSubject<User>;
   public currentUser: Observable<User>
   public currentUserRoleSubject: Subject<string>;
-  public currentUserRole: Observable<string>
+  public currentUserRole: Observable<string>;
+  public currentUserIdSubject: Subject<number>;
+  public currentUserId: Observable<number>
 
   constructor(private http : HttpClient,private houseService: HouseService) {
     this.currentUserRoleSubject = new Subject<string>();
+    this.currentUserId = new Subject<number>();
    }
 
 
@@ -27,6 +30,10 @@ export class AuthService {
 
   setCurrentRole(role) {
     this.currentUserRoleSubject.next(role);
+  }
+
+  setCurrentId(id) {
+    this.currentUserIdSubject.next(id);
   }
 
   login(username: string, password: string) {
