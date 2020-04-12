@@ -1,0 +1,43 @@
+<div class="page-wrapper">
+    <div class="container-fluid">
+        <div class="row page-titles">
+            <div class="col-md-12 ">
+                <h3 class="text-themecolor m-b-0 m-t-0">File Upload Detail</h3><br>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">{{parentPath}}</a></li>
+                    <li class="breadcrumb-item active">{{currentPath}}</li>
+                </ol>
+            </div>
+        </div> 
+
+        <div class="card">
+            <div class="card-block">
+                
+                    <table mdbTable>
+                        <thead>
+                            <tr class="header">
+                            <th *ngFor="let head of headElements" >{{head}} </th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr mdbTableCol *ngFor="let doc of docList; let i = index">
+                                <th>{{i + 1}}</th>
+                                <td>{{doc.fileName}}</td>
+                                <td>
+                                    <a href="{{doc.fileDownloadUri}}" target="_blank">view</a>
+                                </td>
+                                <td>
+                                    <input type="text" id="comment" name="comment" placeholder="leave your comment" (change)="setComment($event, doc.fileID)">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <button type="button" class="btn btn-info" (click)="goBack()">BACK</button>
+                    <button type="submit" class="btn btn-info" (click)="onRejectClick()">REJECT</button>
+                    <button type="submit" class="btn btn-info" (click)="onApproveClick()">APPROVE</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,45 @@
+<div class="page-wrapper">
+    <div class="container-fluid">
+        <div class="row page-titles">
+            <div class="col-md-12 ">
+                <h3 class="text-themecolor m-b-0 m-t-0">List of all houses</h3><br>
+                <!-- <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">{{parentPath}}</a></li>
+                    <li class="breadcrumb-item active">{{currentPath}}</li>
+                </ol> -->
+            </div>
+        </div>
+
+        <br>
+        <br>
+        
+        <div class="card">
+            <div class="card-block">
+
+                <table class="table table-bordered table-striped">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Address</th>
+                            <th scope="col">numberOfPerson</th>
+                            <th scope="col">maxPerson</th>
+                            <th scope="col">seeDetail</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let house of listHouse">
+
+                            <td>{{ house.id }}</td>
+                            <td>{{ house.address }}</td>
+                            <td>{{ house.numberOfPerson }}</td>
+                            <td>{{ house.maxPerson}}</td>
+                            <td><button type="button" class="btn btn-info" (click)="detail(house.id)">Detail</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>

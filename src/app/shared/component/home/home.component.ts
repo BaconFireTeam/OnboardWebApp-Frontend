@@ -16,8 +16,8 @@ export class HomeComponent implements OnInit {
 
   
   ngOnInit(): void {
-    this.currentUser = this.authService.currentUserValue;
-    this.currentUserRole = this.authService.currentUserRoleValue;
+    // this.currentUser = this.authService.currentUserValue;
+    //this.currentUserRole = this.authService.currentUserRoleValue;
   }
 
 }

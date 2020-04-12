@@ -18,8 +18,11 @@ export class SetupComponent {
   email:string = ' ';
   password= 'test';
 
-  constructor(private route: ActivatedRoute, private router: Router, private userService: UserService, private registerService: RegisterService) {
-    // this.account = new User();
+  constructor(private route: ActivatedRoute
+      , private router: Router
+      // , private userService: UserService
+      , private registerService: RegisterService) {
+    this.account = new User();
   }
  
   ngOnInit() {
@@ -27,7 +30,7 @@ export class SetupComponent {
   }
   
   onSubmit() {
-    this.router.navigate(['/personal']);
+    this.router.navigate(['employee/personal']);
     // this.userService.save(this.account).subscribe(result => this.createAccount());
   }
 
